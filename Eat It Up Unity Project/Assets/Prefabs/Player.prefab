@@ -52,7 +52,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.2
-  m_Height: 2.4
+  m_Height: 2.5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6218989197277666703
@@ -81,8 +81,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5638572292536149335}
   m_Father: {fileID: 2534749674817335614}
@@ -200,8 +200,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4441491850352139360}
   m_Father: {fileID: 2534749674817335614}
@@ -215,12 +215,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2534749674817335614}
+  - component: {fileID: 8203036575830472663}
   - component: {fileID: 4363009175555576138}
   - component: {fileID: 3833764034719829840}
   - component: {fileID: 1487745012547647696}
   - component: {fileID: 6161189840460664843}
   - component: {fileID: 163732988387183795}
   - component: {fileID: 1235073055996001042}
+  - component: {fileID: 1947313523168212209}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -245,6 +247,27 @@ Transform:
   - {fileID: 3435672728763728691}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8203036575830472663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8480394121243139484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122cc6e9c4a4c4c49a60e762ef0939a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jump:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 39d9e780-45d7-4d20-b5e7-c1616ff5c61b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &4363009175555576138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,9 +281,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charController: {fileID: 6161189840460664843}
+  myPlayerCollision: {fileID: 3833764034719829840}
+  myPlayerController: {fileID: 8203036575830472663}
   speed: 5
   gravity: 1
-  myPlayerCollision: {fileID: 3833764034719829840}
+  gravityForce: 0.6
+  jumpHeight: 1.75
+  jumpForce: 0.7
+  doubleJumpHeight: 1.25
+  doubleJumpForce: 0.7
 --- !u!114 &3833764034719829840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visuals: {fileID: 6423512391540002482}
   myPlayerMovement: {fileID: 4363009175555576138}
+  myAnimator: {fileID: 1235073055996001042}
 --- !u!143 &6161189840460664843
 CharacterController:
   m_ObjectHideFlags: 0
@@ -305,8 +335,8 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2.2
-  m_Radius: 1.05
+  m_Height: 1.32
+  m_Radius: 0.63
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -361,3 +391,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1947313523168212209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8480394121243139484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

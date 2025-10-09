@@ -55,7 +55,7 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "f1ba0d36-48eb-4cd5-b651-1c94a6531f70",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -82,15 +82,6 @@
                     "name": "Sprint",
                     "type": "Button",
                     "id": "641cd816-40e6-41b4-8c3d-04687c349290",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Tap",
-                    "type": "Button",
-                    "id": "65f77a25-c614-43f6-87f8-995ee0fad175",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -408,6 +399,17 @@
                 },
                 {
                     "name": "",
+                    "id": "e493f5bb-94da-4758-b98c-741bc9acbd7d",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "603f3daf-40bd-4854-8724-93e8017f59e3",
                     "path": "<XRController>/secondaryButton",
                     "interactions": "",
@@ -480,17 +482,6 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Crouch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "64f90c01-9127-4ea4-bf40-32f2b6e42079",
-                    "path": "<Touchscreen>/primaryTouch/tap",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Touch",
-                    "action": "Tap",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
