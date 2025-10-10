@@ -2,11 +2,12 @@ using System.Collections;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    private CharacterController charController;
+    private Rigidbody2D myRigidbody;
     [SerializeField]
     private PlayerCollision myPlayerCollision;
     [SerializeField]
@@ -25,12 +26,20 @@ public class PlayerMovement : MonoBehaviour
     private float doubleJumpHeight = 10f;
     [SerializeField]
     private float doubleJumpForce = 10f;
+    [SerializeField]
+    private float slideForce = 2f;
+    [SerializeField]
+    private float wallJumpForce = 10f;
 
     private MovementDirection currentDirection = MovementDirection.Right;
+    private LayerMask layerMask;
     private Coroutine currentJumpCoroutine;
+    private Coroutine wallSlideCoroutine;
     private Vector3 movementDirection = Vector3.right;
     private bool isJumping = false;
     private bool isDoubleJumping = false;
+    private bool isGrounded = true;
+    private bool isSliding = false;
 
     public MovementDirection CurrentDirection { get { return currentDirection; } }
 
@@ -39,8 +48,10 @@ public class PlayerMovement : MonoBehaviour
     public event DirectionChange OnDirectionChange;
     public delegate void JumpBehaviour();
     public event JumpBehaviour OnStartJump, OnStartDoubleJump, OnMaxJumpHeight, OnFinishJump;
-//    public delegate void StartDoubleJump();
-//    public event StartDoubleJump OnStartDoubleJump;
+    public delegate void Action();
+    public event Action OnStartSlide, OnStopSlide;
+    //    public delegate void StartDoubleJump();
+    //    public event StartDoubleJump OnStartDoubleJump;
 
     public enum MovementDirection
     {
@@ -50,14 +61,15 @@ public class PlayerMovement : MonoBehaviour
 
     void OnEnable()
     {
-        myPlayerCollision.OnWallTouch += ChangeDirection;
+        myPlayerCollision.OnWallTouch += HandleWallTouch;
         myPlayerCollision.OnFloorTouch += TouchingFloor;
         myPlayerController.OnJump += JumpPressed;
     }
 
+
     void OnDisable()
     {
-        myPlayerCollision.OnWallTouch -= ChangeDirection;
+        myPlayerCollision.OnWallTouch -= HandleWallTouch;
         myPlayerCollision.OnFloorTouch -= TouchingFloor;
         myPlayerController.OnJump -= JumpPressed;
     }
@@ -68,12 +80,15 @@ public class PlayerMovement : MonoBehaviour
         movementDirection.y = -gravity;
         isJumping = false;
         isDoubleJumping = false;
+        isGrounded = true;
+        isSliding = false;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Movement();
+        //CheckIfGrounded();
     }
 
     private void Movement()
@@ -83,9 +98,28 @@ public class PlayerMovement : MonoBehaviour
         if (currentDirection == MovementDirection.Left)
             movementDirection.x = -1;
 
-        charController.Move(movementDirection * speed * Time.deltaTime);
+        if (myRigidbody != null)
+            myRigidbody.linearVelocity = movementDirection * speed * Time.deltaTime;
     }
 
+
+    private void HandleWallTouch()
+    {
+        if (!isGrounded)
+        {
+            if (!isSliding)
+            {
+                isSliding = true;
+                OnStartSlide?.Invoke();
+                if (currentJumpCoroutine != null)
+                    StopCoroutine(currentJumpCoroutine);
+
+                wallSlideCoroutine = StartCoroutine(WallSlideCoroutine());
+                return;
+            }
+        }
+        ChangeDirection();
+    }
 
     private void ChangeDirection()
     {
@@ -108,14 +142,33 @@ public class PlayerMovement : MonoBehaviour
 
     private void TouchingFloor()
     {
-        isJumping = false;
-        isDoubleJumping = false;
-        OnFinishJump();
+        if (CheckIfGrounded())
+        {
+            isGrounded = true;
+            isJumping = false;
+            StopSlide();
+            isDoubleJumping = false;
+            OnFinishJump?.Invoke();
+        }
+    }
+
+    private bool CheckIfGrounded()
+    {
+        layerMask = LayerMask.GetMask("Floor");
+        if (Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.down), 1.25f, layerMask) && !isGrounded)
+        {
+            return true;
+        }
+        return false;
     }
 
     private void JumpPressed()
     {
-        //Debug.Log("Jump is: " +isJumping + " double Jump is: " + isDoubleJumping);
+        if (isSliding)
+        {
+            WallJump();
+            return;
+        }
         if (!isJumping)
         {
             Jump();
@@ -131,18 +184,46 @@ public class PlayerMovement : MonoBehaviour
     [ContextMenu("TestJump")]
     private void Jump()
     {
+        isGrounded = false;
         isJumping = true;
         currentJumpCoroutine = StartCoroutine(JumpCoroutine());
-        OnStartJump();
+        OnStartJump?.Invoke();
     }
 
     private void DoubleJump()
     {
+        isGrounded = false;
         isDoubleJumping = true;
         StopCoroutine(currentJumpCoroutine);
         movementDirection.y = 0;
         currentJumpCoroutine = StartCoroutine(DoubleJumpCoroutine());
-        OnStartDoubleJump();
+        OnStartDoubleJump?.Invoke();
+    }
+
+    private void WallJump()
+    {
+        OnDirectionChange?.Invoke(currentDirection);
+        StopSlide();
+        ChangeDirection();
+
+        // Impulso de salto en pared
+        movementDirection.y = wallJumpForce;
+
+        // Opcional: ligero impulso horizontal para separarse de la pared
+        movementDirection.x = currentDirection == MovementDirection.Right ? 1 : -1;
+
+        isJumping = true;
+        OnStartJump?.Invoke();
+    }
+
+    private void StopSlide()
+    {
+        isSliding = false;
+        OnStopSlide?.Invoke();
+        if (wallSlideCoroutine != null)
+            StopCoroutine(wallSlideCoroutine);
+        if (isGrounded)
+            ChangeDirection();
     }
 
     private IEnumerator JumpCoroutine()
@@ -168,7 +249,7 @@ public class PlayerMovement : MonoBehaviour
         yield return null;
     }
 
-        private IEnumerator DoubleJumpCoroutine()
+    private IEnumerator DoubleJumpCoroutine()
     {
         float newYMovementDirection;
         float step = gravityForce;
@@ -190,6 +271,24 @@ public class PlayerMovement : MonoBehaviour
             movementDirection.y = newYMovementDirection;
             yield return new WaitForEndOfFrame();
         }
+        yield return null;
+    }
+
+
+    private IEnumerator WallSlideCoroutine()
+    {
+        float newYMovementDirection;
+        float step = slideForce;
+        // El jugador cae lentamente mientras está en contacto con la pared
+        while (isSliding)
+        {
+            
+            step += Time.deltaTime * slideForce;
+            newYMovementDirection = Mathf.Lerp(0f, -gravity, step);
+            movementDirection.y = newYMovementDirection;
+            yield return new WaitForEndOfFrame();
+        }
+        StopSlide();
         yield return null;
     }
 }

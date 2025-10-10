@@ -12,12 +12,24 @@ public class PlayerCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Floor"))
         {
-            OnFloorTouch();
-            Debug.Log("Floor Touched");
+            OnFloorTouch?.Invoke();
         }
         if (other.gameObject.CompareTag("Wall"))
         {
-            OnWallTouch();
+            OnWallTouch?.Invoke();
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Floor"))
+        {
+            OnFloorTouch?.Invoke();
+        }
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            OnWallTouch?.Invoke();
+        }
+        
     }
 }
