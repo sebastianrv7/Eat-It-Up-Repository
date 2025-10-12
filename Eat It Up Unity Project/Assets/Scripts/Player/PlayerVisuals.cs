@@ -8,6 +8,8 @@ public class PlayerVisuals : MonoBehaviour
     [SerializeField]
     private PlayerMovement myPlayerMovement;
     [SerializeField]
+    private PlayerHealth myPlayerHealth;
+    [SerializeField]
     private Animator myAnimator;
 
     private string jumping = "Jump";
@@ -15,6 +17,7 @@ public class PlayerVisuals : MonoBehaviour
     private string Walk = "Walking";
     private string Falling = "Fall";
     private string Slide = "Sliding";
+    private string Died = "Death";
 
     void OnEnable()
     {
@@ -25,6 +28,7 @@ public class PlayerVisuals : MonoBehaviour
         myPlayerMovement.OnFinishJump += Walking;
         myPlayerMovement.OnStartSlide += Sliding;
         myPlayerMovement.OnStopSlide += Sliding;
+        myPlayerHealth.OnDeath += Death;
     }
 
     void OnDisable()
@@ -36,6 +40,7 @@ public class PlayerVisuals : MonoBehaviour
         myPlayerMovement.OnFinishJump -= Walking;
         myPlayerMovement.OnStartSlide -= Sliding;
         myPlayerMovement.OnStopSlide -= Sliding;
+        myPlayerHealth.OnDeath -= Death;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -99,5 +104,10 @@ public class PlayerVisuals : MonoBehaviour
         myAnimator.SetBool(doubleJumping, false);
         myAnimator.SetBool(Falling, false);
 
+    }
+
+    private void Death()
+    {
+        myAnimator.SetTrigger(Died);
     }
 }

@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private PlayerController myPlayerController;
     [SerializeField]
+    private PlayerHealth myPlayerHealth;
+    [SerializeField]
     private float speed = 10f;
     [SerializeField]
     private float gravity = 10f;
@@ -50,8 +52,6 @@ public class PlayerMovement : MonoBehaviour
     public event JumpBehaviour OnStartJump, OnStartDoubleJump, OnMaxJumpHeight, OnFinishJump;
     public delegate void Action();
     public event Action OnStartSlide, OnStopSlide;
-    //    public delegate void StartDoubleJump();
-    //    public event StartDoubleJump OnStartDoubleJump;
 
     public enum MovementDirection
     {
@@ -64,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
         myPlayerCollision.OnWallTouch += HandleWallTouch;
         myPlayerCollision.OnFloorTouch += TouchingFloor;
         myPlayerController.OnJump += JumpPressed;
+        myPlayerHealth.OnDeath += StopAllMovement;
     }
 
 
@@ -72,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
         myPlayerCollision.OnWallTouch -= HandleWallTouch;
         myPlayerCollision.OnFloorTouch -= TouchingFloor;
         myPlayerController.OnJump -= JumpPressed;
+        myPlayerHealth.OnDeath -= StopAllMovement;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -87,6 +89,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!myPlayerHealth.IsAlive)
+            return;
         Movement();
         //CheckIfGrounded();
     }
@@ -224,6 +228,12 @@ public class PlayerMovement : MonoBehaviour
             StopCoroutine(wallSlideCoroutine);
         if (isGrounded)
             ChangeDirection();
+    }
+
+    private void StopAllMovement()
+    {
+        StopAllCoroutines();
+        movementDirection = new Vector3(0f, 0f, 0f);
     }
 
     private IEnumerator JumpCoroutine()

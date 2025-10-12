@@ -268,6 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2534749674817335614}
   - component: {fileID: 8203036575830472663}
+  - component: {fileID: 1877974916842879684}
   - component: {fileID: 4363009175555576138}
   - component: {fileID: 3833764034719829840}
   - component: {fileID: 1487745012547647696}
@@ -319,6 +320,20 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+--- !u!114 &1877974916842879684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8480394121243139484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33cd8d5a59e115144bc3899c6af790c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayerCollision: {fileID: 3833764034719829840}
+  maxHealth: 1
 --- !u!114 &4363009175555576138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,6 +349,7 @@ MonoBehaviour:
   myRigidbody: {fileID: 6868031946431463533}
   myPlayerCollision: {fileID: 3833764034719829840}
   myPlayerController: {fileID: 8203036575830472663}
+  myPlayerHealth: {fileID: 1877974916842879684}
   speed: 500
   gravity: 1
   gravityForce: 0.6
@@ -369,6 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visuals: {fileID: 6423512391540002482}
   myPlayerMovement: {fileID: 4363009175555576138}
+  myPlayerHealth: {fileID: 1877974916842879684}
   myAnimator: {fileID: 1235073055996001042}
 --- !u!95 &1235073055996001042
 Animator:
