@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: ca421b4885aa7da4787d3da9baa2c03e
+guid: 005375db8ddb2314e8c3213e74b37b02
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3451945400816927230
-    second: Fang Derrape pp-400_0
+      213: -9184781643569554038
+    second: Pez globo-Sheet-500_0
+  - first:
+      213: 4883825411316243205
+    second: Pez globo-Sheet-500_1
+  - first:
+      213: 6424576694811186390
+    second: Pez globo-Sheet-500_2
+  - first:
+      213: 4981505245642175823
+    second: Pez globo-Sheet-500_3
+  - first:
+      213: 5063876434492051668
+    second: Pez globo-Sheet-500_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +60,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -126,13 +138,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fang Derrape pp-400_0
+      name: Pez globo-Sheet-500_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 11
-        width: 202
-        height: 238
+        x: 24
+        y: 44
+        width: 272
+        height: 242
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +153,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef18cb78d06c7ef20800000000000000
-      internalID: 3451945400816927230
+      spriteID: a8d128b12c9198080800000000000000
+      internalID: -9184781643569554038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pez globo-Sheet-500_1
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 54
+        width: 272
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50bd7820655d6c340800000000000000
+      internalID: 4883825411316243205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pez globo-Sheet-500_2
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 64
+        width: 262
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d4597e077ea82950800000000000000
+      internalID: 6424576694811186390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pez globo-Sheet-500_3
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 69
+        width: 252
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f453f35b0acd12540800000000000000
+      internalID: 4981505245642175823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pez globo-Sheet-500_4
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 59
+        width: 272
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d0de50a9c0864640800000000000000
+      internalID: 5063876434492051668
       vertices: []
       indices: 
       edges: []
@@ -161,7 +261,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fang Derrape pp-400_0: 3451945400816927230
+      Pez globo-Sheet-500_0: -9184781643569554038
+      Pez globo-Sheet-500_1: 4883825411316243205
+      Pez globo-Sheet-500_2: 6424576694811186390
+      Pez globo-Sheet-500_3: 4981505245642175823
+      Pez globo-Sheet-500_4: 5063876434492051668
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
