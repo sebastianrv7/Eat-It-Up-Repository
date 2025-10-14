@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float slideForce = 2f;
     [SerializeField]
+    private float wallJumpHeight = 10f;
+    [SerializeField]
     private float wallJumpForce = 10f;
 
     private MovementDirection currentDirection = MovementDirection.Right;
@@ -131,12 +133,12 @@ public class PlayerMovement : MonoBehaviour
         {
             case MovementDirection.Left:
                 currentDirection = MovementDirection.Right;
-                OnDirectionChange(currentDirection);
+                OnDirectionChange?.Invoke(currentDirection);
                 break;
 
             case MovementDirection.Right:
                 currentDirection = MovementDirection.Left;
-                OnDirectionChange(currentDirection);
+                OnDirectionChange?.Invoke(currentDirection);
                 break;
 
             default:
@@ -150,8 +152,9 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
             isJumping = false;
-            StopSlide();
             isDoubleJumping = false;
+            if(isSliding)
+                StopSlide();
             OnFinishJump?.Invoke();
         }
     }
@@ -206,17 +209,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void WallJump()
     {
-        OnDirectionChange?.Invoke(currentDirection);
         StopSlide();
         ChangeDirection();
 
+        currentJumpCoroutine = StartCoroutine(WallJumpCoroutine());
+
         // Impulso de salto en pared
-        movementDirection.y = wallJumpForce;
+        //movementDirection.y = wallJumpForce;
 
         // Opcional: ligero impulso horizontal para separarse de la pared
-        movementDirection.x = currentDirection == MovementDirection.Right ? 1 : -1;
+        //movementDirection.x = currentDirection == MovementDirection.Right ? 1 : -1;
 
         isJumping = true;
+        isDoubleJumping = false;
         OnStartJump?.Invoke();
     }
 
@@ -292,13 +297,37 @@ public class PlayerMovement : MonoBehaviour
         // El jugador cae lentamente mientras está en contacto con la pared
         while (isSliding)
         {
-            
+
             step += Time.deltaTime * slideForce;
             newYMovementDirection = Mathf.Lerp(0f, -gravity, step);
             movementDirection.y = newYMovementDirection;
             yield return new WaitForEndOfFrame();
         }
         StopSlide();
+        yield return null;
+    }
+    
+        private IEnumerator WallJumpCoroutine()
+    {
+        float newYMovementDirection;
+        float step = gravityForce;
+
+        while (movementDirection.y < wallJumpHeight)
+        {
+            step += Time.deltaTime * wallJumpForce;
+            newYMovementDirection = Mathf.Lerp(0f, wallJumpHeight, step);
+            movementDirection.y = newYMovementDirection;
+            yield return new WaitForEndOfFrame();
+        }
+
+        OnMaxJumpHeight();
+        while (movementDirection.y > -gravity)
+        {
+            step += Time.deltaTime * gravityForce;
+            newYMovementDirection = Mathf.Lerp(jumpForce, -gravity, step);
+            movementDirection.y = newYMovementDirection;
+            yield return new WaitForEndOfFrame();
+        }
         yield return null;
     }
 }

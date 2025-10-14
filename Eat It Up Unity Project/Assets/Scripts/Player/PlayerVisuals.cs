@@ -27,7 +27,7 @@ public class PlayerVisuals : MonoBehaviour
         myPlayerMovement.OnMaxJumpHeight += MaxJumpHeight;
         myPlayerMovement.OnFinishJump += Walking;
         myPlayerMovement.OnStartSlide += Sliding;
-        myPlayerMovement.OnStopSlide += Sliding;
+        //myPlayerMovement.OnStopSlide += Sliding;
         myPlayerHealth.OnDeath += Death;
     }
 
@@ -39,7 +39,7 @@ public class PlayerVisuals : MonoBehaviour
         myPlayerMovement.OnMaxJumpHeight -= MaxJumpHeight;
         myPlayerMovement.OnFinishJump -= Walking;
         myPlayerMovement.OnStartSlide -= Sliding;
-        myPlayerMovement.OnStopSlide -= Sliding;
+        //myPlayerMovement.OnStopSlide -= Sliding;
         myPlayerHealth.OnDeath -= Death;
     }
 
@@ -71,6 +71,7 @@ public class PlayerVisuals : MonoBehaviour
         myAnimator.SetBool(Walk, false);
         myAnimator.SetBool(jumping, true);
         myAnimator.SetBool(Slide, false);
+        myAnimator.SetBool(Falling, false);
     }
 
     private void DoubleJump()
@@ -78,6 +79,7 @@ public class PlayerVisuals : MonoBehaviour
         myAnimator.SetBool(Walk, false);
         myAnimator.SetBool(doubleJumping, true);
         myAnimator.SetBool(Slide, false);
+        myAnimator.SetBool(Falling, false);
     }
 
     private void MaxJumpHeight()
