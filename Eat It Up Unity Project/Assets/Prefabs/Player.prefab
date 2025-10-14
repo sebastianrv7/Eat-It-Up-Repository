@@ -350,13 +350,14 @@ MonoBehaviour:
   myPlayerCollision: {fileID: 3833764034719829840}
   myPlayerController: {fileID: 8203036575830472663}
   myPlayerHealth: {fileID: 1877974916842879684}
-  speed: 370
-  gravity: 0.5
+  speed: 300
+  gravity: 1.2
   gravityForce: 0.6
   jumpHeight: 1.8
   jumpForce: 0.8
   doubleJumpHeight: 1.2
   doubleJumpForce: 0.7
+  slideSpeed: 2
   slideForce: 0.7
   wallJumpHeight: 1.25
   wallJumpForce: 1

@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float doubleJumpForce = 10f;
     [SerializeField]
+    private float slideSpeed = 2f;
+    [SerializeField]
     private float slideForce = 2f;
     [SerializeField]
     private float wallJumpHeight = 10f;
@@ -86,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         isDoubleJumping = false;
         isGrounded = true;
         isSliding = false;
+        movementDirection.y = 0f;
     }
 
     // Update is called once per frame
@@ -153,9 +156,10 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
             isJumping = false;
             isDoubleJumping = false;
-            if(isSliding)
+            if (isSliding)
                 StopSlide();
             OnFinishJump?.Invoke();
+            movementDirection.y = 0f;
         }
     }
 
@@ -245,7 +249,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float newYMovementDirection;
         float step = gravityForce;
-        yield return new WaitForSeconds(0.25f);
+        //yield return new WaitForSeconds(0.25f);
         while (movementDirection.y < jumpHeight)
         {
             step += Time.deltaTime * jumpForce;
@@ -299,7 +303,7 @@ public class PlayerMovement : MonoBehaviour
         {
 
             step += Time.deltaTime * slideForce;
-            newYMovementDirection = Mathf.Lerp(0f, -gravity, step);
+            newYMovementDirection = Mathf.Lerp(0f, -slideSpeed, step);
             movementDirection.y = newYMovementDirection;
             yield return new WaitForEndOfFrame();
         }
