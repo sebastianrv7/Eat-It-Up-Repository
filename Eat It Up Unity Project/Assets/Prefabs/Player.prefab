@@ -68,7 +68,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2.5, y: 1.2}
+  m_Size: {x: 2.2, y: 1.1}
   m_Direction: 0
 --- !u!70 &3996331708503253609
 CapsuleCollider2D:
@@ -214,7 +214,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -3595317099054731496, guid: 240501440e7dfc344844d3344fbd585e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -320,6 +320,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  pause:
+    m_Name: Pause
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 942eba0d-0cfa-41f1-835b-653849282cd2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &1877974916842879684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,15 +359,17 @@ MonoBehaviour:
   myPlayerCollision: {fileID: 3833764034719829840}
   myPlayerController: {fileID: 8203036575830472663}
   myPlayerHealth: {fileID: 1877974916842879684}
-  speed: 500
-  gravity: 1
+  speed: 330
+  gravity: 1.2
   gravityForce: 0.6
-  jumpHeight: 1.75
-  jumpForce: 0.7
-  doubleJumpHeight: 1.25
+  jumpHeight: 1.8
+  jumpForce: 0.8
+  doubleJumpHeight: 1.2
   doubleJumpForce: 0.7
+  slideSpeed: 2
   slideForce: 0.7
-  wallJumpForce: 0.7
+  wallJumpHeight: 1.25
+  wallJumpForce: 1
 --- !u!114 &3833764034719829840
 MonoBehaviour:
   m_ObjectHideFlags: 0

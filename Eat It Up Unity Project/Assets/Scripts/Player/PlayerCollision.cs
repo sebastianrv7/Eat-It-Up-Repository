@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     public delegate void PlayerTouch();
-    public event PlayerTouch OnWallTouch, OnFloorTouch;
+    public event PlayerTouch OnWallTouch, OnFloorTouch, OnFinishTouch;
     public delegate void EnemyTouch(int damage);
     public event EnemyTouch OnDamageReceived;
 
@@ -22,6 +22,10 @@ public class PlayerCollision : MonoBehaviour
             int damage = collision.GetComponentInParent<DamagePlayer>().MyDamage;
             OnDamageReceived?.Invoke(damage);
         }
-        
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            OnFinishTouch?.Invoke();
+        }
+
     }
 }
