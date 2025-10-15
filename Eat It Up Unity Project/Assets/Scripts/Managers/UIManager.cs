@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
     private int seconds;
 
     public delegate void ButtonPress();
-    public event ButtonPress OnRestartButton, OnUnpauseButton;
+    public event ButtonPress OnRestartButton, OnUnpauseButton, OnQuitButton;
 
     void Awake()
     {
@@ -36,6 +36,8 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
 
         gameWonHud.SetActive(false);
+        pauseGameHud.SetActive(false);
+        unpauseGameHud.SetActive(false);
         gameHud.SetActive(true);
     }
 
@@ -48,7 +50,7 @@ public class UIManager : MonoBehaviour
     void OnDisable()
     {
         gameManager.OnPlayerWon -= PlayerWon;
-        gameManager.OnPlayerPause -= PauseGame;    
+        gameManager.OnPlayerPause -= PauseGame;
     }
 
     public void PlayerWon()
@@ -65,7 +67,7 @@ public class UIManager : MonoBehaviour
 
     public void RestartButtonPressed()
     {
-        OnRestartButton?.Invoke();    
+        OnRestartButton?.Invoke();
     }
 
     public void PauseGame()
@@ -80,10 +82,16 @@ public class UIManager : MonoBehaviour
         StartCoroutine(UnpausingGame());
     }
 
+    public void QuitGame()
+    {
+        OnQuitButton?.Invoke();
+    }
+
     private IEnumerator UnpausingGame()
     {
         yield return new WaitForSecondsRealtime(3f);
         unpauseGameHud.SetActive(false);
         OnUnpauseButton?.Invoke();
     }
+    
 }
