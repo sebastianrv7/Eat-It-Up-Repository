@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0d19cb85d82ab3d40bf05b386b2490a2
+guid: 77bb26979c2a0ba4497fd6e333e647c2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7052070196326392507
-    second: Nautilo Final plataforma-400_0
+      213: 23982100659012574
+    second: Plataforma base pedacito-400_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,12 +126,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nautilo Final plataforma-400_0
+      name: Plataforma base pedacito-400_0
       rect:
         serializedVersion: 2
-        x: 63
+        x: 55
         y: 59
-        width: 130
+        width: 146
         height: 138
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54d98d81583022e90800000000000000
-      internalID: -7052070196326392507
+      spriteID: ed38fbee793355000800000000000000
+      internalID: 23982100659012574
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Nautilo Final plataforma-400_0: -7052070196326392507
+      Plataforma base pedacito-400_0: 23982100659012574
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
