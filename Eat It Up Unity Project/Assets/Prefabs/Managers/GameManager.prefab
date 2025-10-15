@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4cee33ca4f88ad4e9b4af2aa16daf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainScene: {fileID: 102900000, guid: 6b453437fc191b2468f7909ad56c4b23, type: 3}
+  mainScene: TestLevelRenato
   playerStartPosition: {fileID: 5539058063091742488}
   playerPrefab: {fileID: 8480394121243139484, guid: 6aa70f2577b95c048bcea92acf02c71b, type: 3}
   cameraManager: {fileID: 0}

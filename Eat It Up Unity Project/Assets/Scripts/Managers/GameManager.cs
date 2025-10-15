@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEditor;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
 
     [SerializeField]
-    private SceneAsset mainScene;
+    private string mainScene;
     [SerializeField]
     private GameObject playerStartPosition;
     [SerializeField]
@@ -37,12 +38,19 @@ public class GameManager : MonoBehaviour
     {
         uiManager.OnRestartButton += RestartGame;
         uiManager.OnUnpauseButton += UnpauseGame;
+        uiManager.OnQuitButton += QuitGame;
     }
 
     void OnDisable()
     {
         uiManager.OnRestartButton -= RestartGame;
         uiManager.OnUnpauseButton -= UnpauseGame;
+        uiManager.OnQuitButton -= QuitGame;
+    }
+
+    private void QuitGame()
+    {
+        Application.Quit();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -67,7 +75,7 @@ public class GameManager : MonoBehaviour
     [ContextMenu("Restart")]
     public void RestartGame()
     {
-        SceneManager.LoadScene(mainScene.name);
+        SceneManager.LoadScene(mainScene);
     }
 
     public void SpawnPlayer()
