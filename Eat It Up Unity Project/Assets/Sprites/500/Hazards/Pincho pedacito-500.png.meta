@@ -129,12 +129,12 @@ TextureImporter:
       name: Pincho pedacito-500_0
       rect:
         serializedVersion: 2
-        x: 34
+        x: 35
         y: 0
-        width: 97
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 95
+        height: 60
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3aa86522352f8034f9128dcf6a6083e8
     internalID: 0
     vertices: []
     indices: 
