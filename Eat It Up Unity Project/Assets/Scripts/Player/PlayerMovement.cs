@@ -66,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
     void OnEnable()
     {
         myPlayerCollision.OnWallTouch += HandleWallTouch;
+        myPlayerCollision.OnWallStopTouch += StopWallTouch;
         myPlayerCollision.OnFloorTouch += TouchingFloor;
         myPlayerController.OnJump += JumpPressed;
         myPlayerHealth.OnDeath += StopAllMovement;
@@ -75,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
     void OnDisable()
     {
         myPlayerCollision.OnWallTouch -= HandleWallTouch;
+        myPlayerCollision.OnWallStopTouch -= StopWallTouch;
         myPlayerCollision.OnFloorTouch -= TouchingFloor;
         myPlayerController.OnJump -= JumpPressed;
         myPlayerHealth.OnDeath -= StopAllMovement;
@@ -108,7 +110,10 @@ public class PlayerMovement : MonoBehaviour
             movementDirection.x = -1;
 
         if (myRigidbody != null)
-            myRigidbody.linearVelocity = movementDirection * speed * Time.deltaTime;
+        {
+            myRigidbody.linearVelocityX = movementDirection.x * speed * Time.fixedDeltaTime;
+            //myRigidbody.AddForceX(movementDirection.x * speed * Time.fixedDeltaTime, ForceMode2D.Force);
+        }
     }
 
 
@@ -128,6 +133,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         ChangeDirection();
+    }
+
+    private void StopWallTouch()
+    {
+        if (isGrounded)
+            return;
+        StopSlide();
+        OnMaxJumpHeight?.Invoke();
     }
 
     private void ChangeDirection()
@@ -197,7 +210,8 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = false;
         isJumping = true;
-        currentJumpCoroutine = StartCoroutine(JumpCoroutine());
+        //currentJumpCoroutine = StartCoroutine(JumpCoroutine());
+        myRigidbody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         OnStartJump?.Invoke();
     }
 
@@ -205,9 +219,12 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = false;
         isDoubleJumping = true;
-        StopCoroutine(currentJumpCoroutine);
+        if(currentJumpCoroutine != null)
+            StopCoroutine(currentJumpCoroutine);
         movementDirection.y = 0;
-        currentJumpCoroutine = StartCoroutine(DoubleJumpCoroutine());
+        //currentJumpCoroutine = StartCoroutine(DoubleJumpCoroutine());
+        myRigidbody.linearVelocityY = 0f;
+        myRigidbody.AddForce(new Vector2(0f, doubleJumpForce), ForceMode2D.Impulse);
         OnStartDoubleJump?.Invoke();
     }
 
@@ -216,13 +233,8 @@ public class PlayerMovement : MonoBehaviour
         StopSlide();
         ChangeDirection();
 
-        currentJumpCoroutine = StartCoroutine(WallJumpCoroutine());
-
-        // Impulso de salto en pared
-        //movementDirection.y = wallJumpForce;
-
-        // Opcional: ligero impulso horizontal para separarse de la pared
-        //movementDirection.x = currentDirection == MovementDirection.Right ? 1 : -1;
+        myRigidbody.linearVelocityY = 0f;
+        myRigidbody.AddForce(new Vector2(0f, wallJumpForce), ForceMode2D.Impulse);
 
         isJumping = true;
         isDoubleJumping = false;
@@ -298,13 +310,15 @@ public class PlayerMovement : MonoBehaviour
     {
         float newYMovementDirection;
         float step = slideForce;
-        // El jugador cae lentamente mientras está en contacto con la pared
+        
         while (isSliding)
         {
 
             step += Time.deltaTime * slideForce;
-            newYMovementDirection = Mathf.Lerp(0f, -slideSpeed, step);
+            newYMovementDirection = Mathf.SmoothStep(0f, -slideSpeed, step);
             movementDirection.y = newYMovementDirection;
+            myRigidbody.linearVelocityY = movementDirection.y * speed * Time.fixedDeltaTime;
+
             yield return new WaitForEndOfFrame();
         }
         StopSlide();

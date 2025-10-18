@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     public delegate void PlayerTouch();
-    public event PlayerTouch OnWallTouch, OnFloorTouch, OnFinishTouch;
+    public event PlayerTouch OnWallTouch, OnWallStopTouch, OnFloorTouch, OnFinishTouch;
     public delegate void EnemyTouch(int damage);
     public event EnemyTouch OnDamageReceived;
 
@@ -26,6 +26,13 @@ public class PlayerCollision : MonoBehaviour
         {
             OnFinishTouch?.Invoke();
         }
+    }
 
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            OnWallStopTouch?.Invoke();
+        }
     }
 }

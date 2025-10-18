@@ -23,6 +23,8 @@ public class PlayerVisuals : MonoBehaviour
     [SerializeField]
     private ParticleSystem slideParticle;
     [SerializeField]
+    private ParticleSystem doubleJumpParticle;
+    [SerializeField]
     private Vector3 slideParticleOffset;
     [SerializeField]
     private GameObject jumpParticleParent;
@@ -71,6 +73,7 @@ public class PlayerVisuals : MonoBehaviour
         movementParticle.transform.parent = null;
         movementParticleCoroutine = StartCoroutine(PlayMovementParticle());
         jumpParticleParent.transform.parent = null;
+        doubleJumpParticle.transform.parent = null;
         slideParticle.transform.parent = null;
         SpawnPlayer();
     }
@@ -113,6 +116,7 @@ public class PlayerVisuals : MonoBehaviour
         myAnimator.SetBool(doubleJumping, true);
         myAnimator.SetBool(Slide, false);
         myAnimator.SetBool(Falling, false);
+        PlayDoubleJumpParticle();
     }
 
     private void MaxJumpHeight()
@@ -167,7 +171,7 @@ public class PlayerVisuals : MonoBehaviour
     {
         while (true)
         {
-            movementParticle.transform.position = gameObject.transform.position;
+            movementParticle.transform.position = gameObject.transform.position + new Vector3(0f, -0.5f, 0f);
             movementParticle.Emit(1);
             yield return new WaitForSeconds(1);
         }
@@ -181,6 +185,12 @@ public class PlayerVisuals : MonoBehaviour
             particle.Play();
         }
     }
+
+    private void PlayDoubleJumpParticle()
+    {
+        doubleJumpParticle.transform.position = gameObject.transform.position;
+        doubleJumpParticle.Play();
+    }
     private IEnumerator DeathAnimation()
     {
         yield return new WaitForSeconds(0.25f);
@@ -192,7 +202,15 @@ public class PlayerVisuals : MonoBehaviour
     {
         while (true)
         {
-            Vector3 offset = new Vector3(slideParticleOffset.x, slideParticleOffset.y, slideParticleOffset.z);
+            Vector3 offset = new Vector3();
+            if (PlayerMovement.MovementDirection.Left == currentDirection)
+            {
+                offset = new Vector3(-slideParticleOffset.x, slideParticleOffset.y, slideParticleOffset.z);
+            }
+            else if (PlayerMovement.MovementDirection.Right == currentDirection)
+            {
+                offset = new Vector3(slideParticleOffset.x, slideParticleOffset.y, slideParticleOffset.z);
+            }
             slideParticle.transform.position = gameObject.transform.position + offset;
             yield return new WaitForEndOfFrame();
         }
