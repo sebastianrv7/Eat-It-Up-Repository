@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerVisuals : MonoBehaviour
@@ -11,6 +13,24 @@ public class PlayerVisuals : MonoBehaviour
     private PlayerHealth myPlayerHealth;
     [SerializeField]
     private Animator myAnimator;
+    [SerializeField]
+    private ParticleSystem spawnParticle;
+    [SerializeField]
+    private ParticleSystem deathParticle;
+    [SerializeField]
+    private ParticleSystem movementParticle;
+    [SerializeField]
+    private ParticleSystem slideParticle;
+    [SerializeField]
+    private Vector3 slideParticleOffset;
+    [SerializeField]
+    private GameObject jumpParticleParent;
+    [SerializeField]
+    private List<ParticleSystem> jumpParticles;
+
+    private Coroutine movementParticleCoroutine;
+    private Coroutine slideParticleCoroutine;
+    private PlayerMovement.MovementDirection currentDirection;
 
     private string jumping = "Jump";
     private string doubleJumping = "DoubleJump";
@@ -27,7 +47,7 @@ public class PlayerVisuals : MonoBehaviour
         myPlayerMovement.OnMaxJumpHeight += MaxJumpHeight;
         myPlayerMovement.OnFinishJump += Walking;
         myPlayerMovement.OnStartSlide += Sliding;
-        //myPlayerMovement.OnStopSlide += Sliding;
+        myPlayerMovement.OnStopSlide += StopSliding;
         myPlayerHealth.OnDeath += Death;
     }
 
@@ -39,7 +59,7 @@ public class PlayerVisuals : MonoBehaviour
         myPlayerMovement.OnMaxJumpHeight -= MaxJumpHeight;
         myPlayerMovement.OnFinishJump -= Walking;
         myPlayerMovement.OnStartSlide -= Sliding;
-        //myPlayerMovement.OnStopSlide -= Sliding;
+        myPlayerMovement.OnStopSlide -= StopSliding;
         myPlayerHealth.OnDeath -= Death;
     }
 
@@ -47,18 +67,26 @@ public class PlayerVisuals : MonoBehaviour
     void Start()
     {
         ChangeVisualDirection(myPlayerMovement.CurrentDirection);
+        movementParticle.transform.parent = null;
+        movementParticleCoroutine = StartCoroutine(PlayMovementParticle());
+        jumpParticleParent.transform.parent = null;
+        slideParticle.transform.parent = null;
+        SpawnPlayer();
     }
 
     private void ChangeVisualDirection(PlayerMovement.MovementDirection newDirection)
     {
+        currentDirection = newDirection;
         switch (newDirection)
         {
             case PlayerMovement.MovementDirection.Left:
                 gameObject.transform.localScale = new Vector3(-1, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+                movementParticle.transform.localScale = new Vector3(1, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
                 break;
 
             case PlayerMovement.MovementDirection.Right:
                 gameObject.transform.localScale = new Vector3(1, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+                movementParticle.transform.localScale = new Vector3(-1, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
                 break;
 
             default:
@@ -68,10 +96,14 @@ public class PlayerVisuals : MonoBehaviour
 
     private void Jump()
     {
+        if (movementParticleCoroutine != null)
+            StopCoroutine(movementParticleCoroutine);
+
         myAnimator.SetBool(Walk, false);
         myAnimator.SetBool(jumping, true);
         myAnimator.SetBool(Slide, false);
         myAnimator.SetBool(Falling, false);
+        PlayJumpParticle();
     }
 
     private void DoubleJump()
@@ -96,7 +128,8 @@ public class PlayerVisuals : MonoBehaviour
         myAnimator.SetBool(doubleJumping, false);
         myAnimator.SetBool(Falling, false);
         myAnimator.SetBool(Slide, false);
-
+        movementParticleCoroutine = StartCoroutine(PlayMovementParticle());
+        slideParticle.Stop();
     }
 
     private void Sliding()
@@ -105,11 +138,62 @@ public class PlayerVisuals : MonoBehaviour
         myAnimator.SetBool(jumping, false);
         myAnimator.SetBool(doubleJumping, false);
         myAnimator.SetBool(Falling, false);
+        slideParticleCoroutine = StartCoroutine(FollowSlideParticles());
+        slideParticle.Play();
+    }
 
+    private void StopSliding()
+    {
+        myAnimator.SetBool(Slide, false);
+        slideParticle.Stop();
+        if(slideParticleCoroutine != null)
+            StopCoroutine(slideParticleCoroutine);
     }
 
     private void Death()
     {
         myAnimator.SetTrigger(Died);
+        StartCoroutine(DeathAnimation());
+    }
+
+    private void SpawnPlayer()
+    {
+        spawnParticle.Play();
+        visuals.SetActive(true);
+    }
+
+    private IEnumerator PlayMovementParticle()
+    {
+        while (true)
+        {
+            movementParticle.transform.position = gameObject.transform.position;
+            movementParticle.Emit(1);
+            yield return new WaitForSeconds(1);
+        }
+    }
+
+    private void PlayJumpParticle()
+    {
+        jumpParticleParent.transform.position = gameObject.transform.position;
+        foreach (ParticleSystem particle in jumpParticles)
+        {
+            particle.Play();
+        }
+    }
+    private IEnumerator DeathAnimation()
+    {
+        yield return new WaitForSeconds(0.25f);
+        visuals.SetActive(false);
+        deathParticle.Play();
+    }
+
+    private IEnumerator FollowSlideParticles()
+    {
+        while (true)
+        {
+            slideParticle.transform.position = gameObject.transform.position + slideParticleOffset;
+            yield return new WaitForEndOfFrame();
+        }
+
     }
 }
