@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
 
     private int minutes;
     private int seconds;
+    private bool timerActive;
 
     public delegate void ButtonPress();
     public event ButtonPress OnRestartButton, OnUnpauseButton, OnQuitButton;
@@ -53,8 +54,15 @@ public class UIManager : MonoBehaviour
         gameManager.OnPlayerPause -= PauseGame;
     }
 
+    void Start()
+    {
+        timerActive = true;
+        StartCoroutine(CurrentTimer());
+    }
+
     public void PlayerWon()
     {
+        timerActive = false;
         SetFinalTimer();
         gameWonHud.SetActive(true);
         gameHud.SetActive(false);
@@ -93,5 +101,20 @@ public class UIManager : MonoBehaviour
         unpauseGameHud.SetActive(false);
         OnUnpauseButton?.Invoke();
     }
-    
+
+    private IEnumerator CurrentTimer()
+    {
+        while (timerActive)
+        {
+            yield return new WaitForSeconds(1f);
+            seconds++;
+            if (seconds >= 60)
+            {
+                seconds = 0;
+                minutes++;
+            }
+            gameTimer.SetText(minutes.ToString("D2") + ":" + seconds.ToString("D2"));
+        }
+        
+    }
 }

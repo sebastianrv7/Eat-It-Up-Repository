@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerVisuals : MonoBehaviour
@@ -191,7 +192,8 @@ public class PlayerVisuals : MonoBehaviour
     {
         while (true)
         {
-            slideParticle.transform.position = gameObject.transform.position + slideParticleOffset;
+            Vector3 offset = new Vector3(slideParticleOffset.x, slideParticleOffset.y, slideParticleOffset.z);
+            slideParticle.transform.position = gameObject.transform.position + offset;
             yield return new WaitForEndOfFrame();
         }
 
