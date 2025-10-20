@@ -77,11 +77,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4cee33ca4f88ad4e9b4af2aa16daf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainScene: TestLevelRenato
+  mainScene: TestLevel
   playerStartPosition: {fileID: 5539058063091742488}
   playerPrefab: {fileID: 8480394121243139484, guid: 6aa70f2577b95c048bcea92acf02c71b, type: 3}
   cameraManager: {fileID: 0}
   uiManager: {fileID: 0}
+  levelManager: {fileID: 0}
 --- !u!1 &8497495324254320651
 GameObject:
   m_ObjectHideFlags: 0

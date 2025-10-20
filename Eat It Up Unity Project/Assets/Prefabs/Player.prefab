@@ -373,7 +373,7 @@ MonoBehaviour:
   doubleJumpHeight: 1.2
   doubleJumpForce: 20
   slideSpeed: 2
-  slideForce: 0.4
+  slideForce: 0.25
   wallJumpHeight: 1.75
   wallJumpForce: 16
 --- !u!114 &3833764034719829840

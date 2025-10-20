@@ -100,7 +100,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 70653221f7a6e2b4f925fda716623bc1, type: 2}
     - target: {fileID: 2667093000511431683, guid: 6e2749efbd6f41e4794dc29413052bed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 3081492819227653671, guid: 6e2749efbd6f41e4794dc29413052bed, type: 3}
       propertyPath: m_Name
@@ -215,5 +215,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.5775144, y: 1.2732849}
+  m_Size: {x: 1.1, y: 0.9}
   m_EdgeRadius: 0

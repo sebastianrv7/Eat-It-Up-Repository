@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 3081492819227653671, guid: 6e2749efbd6f41e4794dc29413052bed, type: 3}
+      propertyPath: m_Name
+      value: Sprite
+      objectReference: {fileID: 0}
     - target: {fileID: 7535392740329949529, guid: 6e2749efbd6f41e4794dc29413052bed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
