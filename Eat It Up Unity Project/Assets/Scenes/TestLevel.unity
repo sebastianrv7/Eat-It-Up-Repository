@@ -105362,7 +105362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3122296840316095484, guid: b7146f48ae6c7f54bb44ca69e25985c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.89
+      value: -2.53
       objectReference: {fileID: 0}
     - target: {fileID: 4207963209606716766, guid: b7146f48ae6c7f54bb44ca69e25985c7, type: 3}
       propertyPath: Composition.ScreenPosition.y
@@ -108179,7 +108179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7445131291994808913, guid: 665fdeda05f7cb24e8e40da4e6a171e4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7837208424293611504, guid: 665fdeda05f7cb24e8e40da4e6a171e4, type: 3}
       propertyPath: m_Layer
@@ -108194,7 +108194,8 @@ PrefabInstance:
       value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7837208424293611504, guid: 665fdeda05f7cb24e8e40da4e6a171e4, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 665fdeda05f7cb24e8e40da4e6a171e4, type: 3}
@@ -108673,11 +108674,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718776188189415644, guid: 49d61b47a653ec94e8509000847e263d, type: 3}
       propertyPath: m_Size.y
-      value: 3.1963196
+      value: 3.0975876
       objectReference: {fileID: 0}
     - target: {fileID: 2718776188189415644, guid: 49d61b47a653ec94e8509000847e263d, type: 3}
       propertyPath: m_Offset.y
-      value: 0.5869217
+      value: 0.5375557
       objectReference: {fileID: 0}
     - target: {fileID: 3174867210603403805, guid: 49d61b47a653ec94e8509000847e263d, type: 3}
       propertyPath: m_Name
