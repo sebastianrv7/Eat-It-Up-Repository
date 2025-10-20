@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,8 +20,12 @@ public class GameManager : MonoBehaviour
     private CameraManager cameraManager;
     [SerializeField]
     private UIManager uiManager;
+    [SerializeField]
+    private LevelManager levelManager;
 
     private GameObject currentPlayer;
+    private List<Collectable> collectablesPerLevel = new List<Collectable>();
+    private List<Collectable> collectablesCollected = new List<Collectable>();
     private bool playerIsDead;
     private bool gamePaused;
 
@@ -62,7 +68,11 @@ public class GameManager : MonoBehaviour
     [ContextMenu("GameOver")]
     public void GameOver()
     {
+        currentPlayer.GetComponent<PlayerController>().DisableController();
         currentPlayer.GetComponent<PlayerHealth>().OnDeath -= GameOver;
+        currentPlayer.GetComponent<PlayerCollision>().OnFinishTouch -= GameWon;
+        currentPlayer.GetComponent<PlayerCollision>().OnCollectableTouch -= CollectibleCollected;
+        currentPlayer.GetComponent<PlayerController>().OnPause -= PauseGame;
         playerIsDead = true;
         StartCoroutine(RestartingGame());
     }
@@ -70,12 +80,13 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SpawnPlayer();
+        GetCollectablesInLevel();
     }
 
     [ContextMenu("Restart")]
     public void RestartGame()
     {
-        SceneManager.LoadScene(mainScene);
+        levelManager.reloadScene();
     }
 
     public void SpawnPlayer()
@@ -84,12 +95,18 @@ public class GameManager : MonoBehaviour
         cameraManager.SetTrackingTarget(currentPlayer.transform);
         currentPlayer.GetComponent<PlayerHealth>().OnDeath += GameOver;
         currentPlayer.GetComponent<PlayerCollision>().OnFinishTouch += GameWon;
+        currentPlayer.GetComponent<PlayerCollision>().OnCollectableTouch += CollectibleCollected;
         currentPlayer.GetComponent<PlayerController>().OnPause += PauseGame;
     }
 
     public void GameWon()
     {
-        playerPrefab.GetComponent<PlayerController>().DisableController();
+        currentPlayer.GetComponent<PlayerController>().DisableController();
+        currentPlayer.GetComponent<PlayerHealth>().OnDeath -= GameOver;
+        currentPlayer.GetComponent<PlayerCollision>().OnFinishTouch -= GameWon;
+        currentPlayer.GetComponent<PlayerCollision>().OnCollectableTouch -= CollectibleCollected;
+        currentPlayer.GetComponent<PlayerController>().OnPause -= PauseGame;
+        levelManager.loadNextScene();
         OnPlayerWon?.Invoke();
     }
 
@@ -100,7 +117,7 @@ public class GameManager : MonoBehaviour
             uiManager.UnpauseGame();
             return;
         }
-        playerPrefab.GetComponent<PlayerController>().DisableController();
+        currentPlayer.GetComponent<PlayerController>().DisableController();
         OnPlayerPause?.Invoke();
         gamePaused = true;
         Time.timeScale = 0;
@@ -110,7 +127,22 @@ public class GameManager : MonoBehaviour
     {
         gamePaused = false;
         Time.timeScale = 1;
-        playerPrefab.GetComponent<PlayerController>().EnableController();
+        currentPlayer.GetComponent<PlayerController>().EnableController();
+    }
+
+    public void GetCollectablesInLevel()
+    {
+        UnityEngine.Object[] collectablesFound = FindObjectsByType(typeof(Collectable), FindObjectsSortMode.None);
+        foreach (UnityEngine.Object collectable in collectablesFound)
+        {
+            Collectable collectableScript = (Collectable)collectable.GetComponent(typeof(Collectable));
+            collectablesPerLevel.Add(collectableScript);
+        }
+    }
+
+    public void CollectibleCollected(Collectable collectableCollected)
+    {
+        collectablesCollected.Add(collectableCollected);
     }
 
     private IEnumerator RestartingGame()

@@ -6,6 +6,8 @@ public class PlayerCollision : MonoBehaviour
     public event PlayerTouch OnWallTouch, OnWallStopTouch, OnFloorTouch, OnFinishTouch;
     public delegate void EnemyTouch(int damage);
     public event EnemyTouch OnDamageReceived;
+    public delegate void CollectableTouch(Collectable colectable);
+    public event CollectableTouch OnCollectableTouch;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,6 +27,14 @@ public class PlayerCollision : MonoBehaviour
         if (collision.gameObject.CompareTag("Finish"))
         {
             OnFinishTouch?.Invoke();
+        }
+        if (collision.gameObject.CompareTag("Collectible"))
+        {
+            Collectable collectableCollected = collision.GetComponentInParent<Collectable>();
+            if (collectableCollected == null)
+                return;
+            collectableCollected.ObjectCollected();
+            OnCollectableTouch?.Invoke(collectableCollected);
         }
     }
 
