@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
         currentPlayer.GetComponent<PlayerCollision>().OnFinishTouch -= GameWon;
         currentPlayer.GetComponent<PlayerCollision>().OnCollectableTouch -= CollectibleCollected;
         currentPlayer.GetComponent<PlayerController>().OnPause -= PauseGame;
-        levelManager.loadNextScene();
+        levelManager.tryLoadNextScene();
         OnPlayerWon?.Invoke();
     }
 
