@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
 
     [SerializeField]
-    private string mainScene;
-    [SerializeField]
     private GameObject playerStartPosition;
     [SerializeField]
     private GameObject playerPrefab;

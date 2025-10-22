@@ -45,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - TestLevel
-  - TestLevelRenato
+  - Level1
+  - Level2
+  - Level3

@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917889848571557957}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1965016058404096993}
-  m_Father: {fileID: 2951587073198611976}
+  m_Father: {fileID: 40132838119747782}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4052219139904880737
 GameObject:
@@ -42,8 +42,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2951587073198611976}
   - component: {fileID: 1291280125750976497}
+  - component: {fileID: 7293972242641570910}
   m_Layer: 11
-  m_Name: Collectible
+  m_Name: Collectable
   m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,8 +63,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5943677524800731246}
-  - {fileID: 950393035168242619}
+  - {fileID: 40132838119747782}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1291280125750976497
@@ -79,6 +79,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectedVFX: {fileID: 3926772597656287065, guid: 429ba18d0bc153545808c1d3241520ae, type: 3}
+  spriteToChange: {fileID: 808158388790239554}
+  normalSprite: {fileID: 0}
+  normalScore: 5
+  normalSpriteScale: {x: 0, y: 0, z: 0}
+  rareSprite: {fileID: 0}
+  rareScore: 10
+  rareSpriteScale: {x: 0, y: 0, z: 0}
+  goldSprite: {fileID: 0}
+  goldScore: 20
+  goldSpriteScale: {x: 0, y: 0, z: 0}
+  myType: 1
+  myAnimator: {fileID: 7293972242641570910}
+--- !u!95 &7293972242641570910
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4052219139904880737}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2070fa89768750c43a2cd9d2e6cf848e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5267827376315581828
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,12 +224,45 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6321772420918522587}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2047100227547374116}
+  m_Father: {fileID: 40132838119747782}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6718697560252596439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 40132838119747782}
+  m_Layer: 11
+  m_Name: AnimCollectable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &40132838119747782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6718697560252596439}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5943677524800731246}
+  - {fileID: 950393035168242619}
   m_Father: {fileID: 2951587073198611976}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8186774836290306928
