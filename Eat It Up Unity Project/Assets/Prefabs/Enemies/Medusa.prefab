@@ -76,7 +76,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.84512866, y: 0.50858307}
+  m_Size: {x: 1.3077099, y: 0.50858307}
   m_EdgeRadius: 0
 --- !u!1001 &454516375697729497
 PrefabInstance:
@@ -106,17 +106,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sprite
       objectReference: {fileID: 0}
+    - target: {fileID: 6137914388421163649, guid: 6e2749efbd6f41e4794dc29413052bed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7535392740329949529, guid: 6e2749efbd6f41e4794dc29413052bed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.219121
       objectReference: {fileID: 0}
     - target: {fileID: 7535392740329949529, guid: 6e2749efbd6f41e4794dc29413052bed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 34.131817
       objectReference: {fileID: 0}
     - target: {fileID: 7535392740329949529, guid: 6e2749efbd6f41e4794dc29413052bed, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.541886
       objectReference: {fileID: 0}
     - target: {fileID: 7535392740329949529, guid: 6e2749efbd6f41e4794dc29413052bed, type: 3}
       propertyPath: m_LocalRotation.w
