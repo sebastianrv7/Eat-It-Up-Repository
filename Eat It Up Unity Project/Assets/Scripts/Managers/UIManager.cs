@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameManager gameManager;
     [SerializeField]
+    private ScoreManager scoreManager;
+    [SerializeField]
     private GameObject gameHud;
     [SerializeField]
     private GameObject pauseGameHud;
@@ -33,7 +35,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Slider progressSlider;
 
-    private  int currentScore;
     private  int rareCollectables;
     private  int goldCollectables;
     private  int initialScore;
@@ -96,7 +97,7 @@ public class UIManager : MonoBehaviour
     public void PlayerWonLevel()
     {
         UpdateInitialCollectables(rareCollectables, goldCollectables);
-        UpdateInitialScore(currentScore);
+        UpdateInitialScore(scoreManager.CurrentScore);
         SetLevelWonHUD();
         timerActive = false;
         SetFinalTimer();
@@ -152,8 +153,6 @@ public class UIManager : MonoBehaviour
 
     public void UpdateCollectables(Collectable collectableCollected)
     {
-        currentScore += collectableCollected.MyScore;
-        UpdateScoreText();
         switch (collectableCollected.MyCollectableType)
         {
             case Collectable.CollectableType.Normal:
@@ -167,6 +166,7 @@ public class UIManager : MonoBehaviour
             default:
                 break;
         }
+        UpdateScoreText();
         UpdateCollectableText();
     }
 
@@ -192,7 +192,6 @@ public class UIManager : MonoBehaviour
 
     public void SetInitialScore()
     {
-        currentScore = initialScore;
         UpdateScoreText();
     }
 
@@ -203,13 +202,13 @@ public class UIManager : MonoBehaviour
 
     public void UpdateScoreText()
     {
-        gameTimer.SetText(currentScore.ToString("D2"));
+        gameTimer.SetText(scoreManager.CurrentScore.ToString("D2"));
     }
 
     public void SetLevelWonHUD()
     {
-        rareCollectableLevelWonText.SetText(":" + rareCollectables.ToString("D2") + "/" + gameManager.MaxRareCollectablePerLevel.ToString("D2"));
-        goldCollectableLevelWonText.SetText(":" + goldCollectables.ToString("D2") + "/" + gameManager.MaxGoldCollectablePerLevel.ToString("D2"));
+        rareCollectableLevelWonText.SetText(":" + rareCollectables.ToString("D2") + "/" + scoreManager.MaxRareCollectablePerLevel.ToString("D2"));
+        goldCollectableLevelWonText.SetText(":" + goldCollectables.ToString("D2") + "/" + scoreManager.MaxGoldCollectablePerLevel.ToString("D2"));
     }
 
     private IEnumerator UnpausingGame()
