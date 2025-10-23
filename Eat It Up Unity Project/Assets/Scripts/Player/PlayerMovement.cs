@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private PlayerHealth myPlayerHealth;
     [SerializeField]
+    private GameObject floorCollisionStart;
+    [SerializeField]
     private float speed = 10f;
     [SerializeField]
     private float gravity = 10f;
@@ -67,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     {
         myPlayerCollision.OnWallTouch += HandleWallTouch;
         myPlayerCollision.OnWallStopTouch += StopWallTouch;
-        myPlayerCollision.OnFloorTouch += TouchingFloor;
+        //myPlayerCollision.OnFloorTouch += TouchingFloor;
         myPlayerController.OnJump += JumpPressed;
         myPlayerHealth.OnDeath += StopAllMovement;
     }
@@ -77,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
     {
         myPlayerCollision.OnWallTouch -= HandleWallTouch;
         myPlayerCollision.OnWallStopTouch -= StopWallTouch;
-        myPlayerCollision.OnFloorTouch -= TouchingFloor;
+        //myPlayerCollision.OnFloorTouch -= TouchingFloor;
         myPlayerController.OnJump -= JumpPressed;
         myPlayerHealth.OnDeath -= StopAllMovement;
     }
@@ -98,6 +100,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!myPlayerHealth.IsAlive)
             return;
+        if (isSliding || !isGrounded)
+            TouchingFloor();
+
         Movement();
         //CheckIfGrounded();
     }
@@ -179,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
     private bool CheckIfGrounded()
     {
         layerMask = LayerMask.GetMask("Floor");
-        if (Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.down), 1.25f, layerMask) && !isGrounded)
+        if (Physics2D.Raycast(floorCollisionStart.transform.position, transform.TransformDirection(Vector2.down), 0.35f, layerMask) && !isGrounded && myRigidbody.linearVelocityY < 0)
         {
             return true;
         }
@@ -251,7 +256,7 @@ public class PlayerMovement : MonoBehaviour
             ChangeDirection();
     }
 
-    private void StopAllMovement()
+    public void StopAllMovement()
     {
         StopAllCoroutines();
         movementDirection = new Vector3(0f, 0f, 0f);

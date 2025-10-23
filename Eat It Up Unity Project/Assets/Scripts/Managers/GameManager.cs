@@ -22,13 +22,26 @@ public class GameManager : MonoBehaviour
     private LevelManager levelManager;
 
     private GameObject currentPlayer;
-    private List<Collectable> collectablesPerLevel = new List<Collectable>();
+    private GameObject playerFinalPosition;
+    private List<List<Collectable>> rareCollectablesPerLevel = new List<List<Collectable>>();
+    private List<List<Collectable>> rareCollectablesCollectedPerLevel = new List<List<Collectable>>();
+    private List<List<Collectable>> goldCollectablesPerLevel = new List<List<Collectable>>();
+    private List<List<Collectable>> goldCollectablesCollectedPerLevel = new List<List<Collectable>>();
+    //private List<Collectable> rareCollectablesPerLevel = new List<Collectable>();
+    //private List<Collectable> goldCollectablesPerLevel = new List<Collectable>();
     private List<Collectable> collectablesCollected = new List<Collectable>();
     private bool playerIsDead;
     private bool gamePaused;
+    private int currentLevel;
+
+    public float PlayerStartPosition { get { return playerStartPosition.transform.position.y; } }
+    public float PlayerEndPosition { get { return playerFinalPosition.transform.position.y; }}
+    public float CurrentPlayerPosition { get { return currentPlayer.transform.position.y; }}
 
     public delegate void Gametatus();
     public event Gametatus OnPlayerWon, OnPlayerPause, OnPlayerUnpause;
+    public delegate void CollectableBehaviour(Collectable collectableCollected);
+    public event CollectableBehaviour OnCollectableCollected;
 
     void Awake()
     {
@@ -43,6 +56,8 @@ public class GameManager : MonoBehaviour
         uiManager.OnRestartButton += RestartGame;
         uiManager.OnUnpauseButton += UnpauseGame;
         uiManager.OnQuitButton += QuitGame;
+        levelManager.OnGameFinished += GameFinished;
+        cameraManager.OnCinematicFinished += CinematicFinished;
     }
 
     void OnDisable()
@@ -50,6 +65,8 @@ public class GameManager : MonoBehaviour
         uiManager.OnRestartButton -= RestartGame;
         uiManager.OnUnpauseButton -= UnpauseGame;
         uiManager.OnQuitButton -= QuitGame;
+        levelManager.OnGameFinished -= GameFinished;
+        cameraManager.OnCinematicFinished -= CinematicFinished;
     }
 
     private void QuitGame()
@@ -57,7 +74,6 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartGame();
@@ -68,7 +84,7 @@ public class GameManager : MonoBehaviour
     {
         currentPlayer.GetComponent<PlayerController>().DisableController();
         currentPlayer.GetComponent<PlayerHealth>().OnDeath -= GameOver;
-        currentPlayer.GetComponent<PlayerCollision>().OnFinishTouch -= GameWon;
+        currentPlayer.GetComponent<PlayerCollision>().OnFinishTouch -= LevelWon;
         currentPlayer.GetComponent<PlayerCollision>().OnCollectableTouch -= CollectibleCollected;
         currentPlayer.GetComponent<PlayerController>().OnPause -= PauseGame;
         playerIsDead = true;
@@ -77,8 +93,11 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        currentLevel++;
         SpawnPlayer();
         GetCollectablesInLevel();
+        playerFinalPosition = GameObject.FindWithTag("Finish");
+        uiManager.SetProgressBar();
     }
 
     [ContextMenu("Restart")]
@@ -92,20 +111,21 @@ public class GameManager : MonoBehaviour
         currentPlayer = Instantiate(playerPrefab, playerStartPosition.transform);
         cameraManager.SetTrackingTarget(currentPlayer.transform);
         currentPlayer.GetComponent<PlayerHealth>().OnDeath += GameOver;
-        currentPlayer.GetComponent<PlayerCollision>().OnFinishTouch += GameWon;
+        currentPlayer.GetComponent<PlayerCollision>().OnFinishTouch += LevelWon;
         currentPlayer.GetComponent<PlayerCollision>().OnCollectableTouch += CollectibleCollected;
         currentPlayer.GetComponent<PlayerController>().OnPause += PauseGame;
     }
 
-    public void GameWon()
+    public void LevelWon()
     {
         currentPlayer.GetComponent<PlayerController>().DisableController();
         currentPlayer.GetComponent<PlayerHealth>().OnDeath -= GameOver;
-        currentPlayer.GetComponent<PlayerCollision>().OnFinishTouch -= GameWon;
+        currentPlayer.GetComponent<PlayerCollision>().OnFinishTouch -= LevelWon;
         currentPlayer.GetComponent<PlayerCollision>().OnCollectableTouch -= CollectibleCollected;
         currentPlayer.GetComponent<PlayerController>().OnPause -= PauseGame;
-        levelManager.tryLoadNextScene();
+        rareCollectablesCollectedPerLevel[currentLevel] = collectablesCollected;
         OnPlayerWon?.Invoke();
+        levelManager.tryLoadNextScene();
     }
 
     public void PauseGame()
@@ -134,13 +154,50 @@ public class GameManager : MonoBehaviour
         foreach (UnityEngine.Object collectable in collectablesFound)
         {
             Collectable collectableScript = (Collectable)collectable.GetComponent(typeof(Collectable));
-            collectablesPerLevel.Add(collectableScript);
+            switch (collectableScript.MyCollectableType)
+            {
+                case Collectable.CollectableType.Normal:
+                    break;
+                case Collectable.CollectableType.Rare:
+                    rareCollectablesPerLevel[currentLevel].Add(collectableScript);
+                    break;
+                case Collectable.CollectableType.Gold:
+                    goldCollectablesPerLevel[currentLevel].Add(collectableScript);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
     public void CollectibleCollected(Collectable collectableCollected)
     {
-        collectablesCollected.Add(collectableCollected);
+        switch (collectableCollected.MyCollectableType)
+        {
+            case Collectable.CollectableType.Normal:
+                break;
+            case Collectable.CollectableType.Rare:
+                rareCollectablesCollectedPerLevel[currentLevel].Add(collectableCollected);
+                break;
+            case Collectable.CollectableType.Gold:
+                goldCollectablesCollectedPerLevel[currentLevel].Add(collectableCollected);
+                break;
+            default:
+                break;
+        }
+        OnCollectableCollected?.Invoke(collectableCollected);
+    }
+
+    public void GameFinished()
+    {
+        currentPlayer.GetComponent<PlayerController>().DisableController();
+        currentPlayer.GetComponent<PlayerMovement>().StopAllMovement();
+        cameraManager.GameFinished();
+    }
+
+    public void CinematicFinished()
+    {
+        uiManager.PlayerWon();
     }
 
     private IEnumerator RestartingGame()
@@ -148,4 +205,5 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         RestartGame();
     }
+    
 }

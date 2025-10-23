@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ddc6b1955f1981d44bfb6bd6b6113805
+guid: bf0668cad9dc9cc49916d5e93aae9b60
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2132506157679183802
-    second: Sushi 2_0
+      213: -5564348379112770522
+    second: Sushi 2 bordeado blanco_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sushi 2_0
+      name: Sushi 2 bordeado blanco_0
       rect:
         serializedVersion: 2
         x: 9
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 648f236b2f0d762e0800000000000000
-      internalID: -2132506157679183802
+      spriteID: 624767061a677c2b0800000000000000
+      internalID: -5564348379112770522
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sushi 2_0: -2132506157679183802
+      Sushi 2 bordeado blanco_0: -5564348379112770522
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -6,8 +6,8 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
 
-    [SerializeField]
-    private List<string> levels;
+	public delegate void GameFinished();
+	public event GameFinished OnGameFinished;
 
     void Awake()
     {
@@ -57,9 +57,11 @@ public class LevelManager : MonoBehaviour
     {
 		int sceneIndex = SceneManager.GetActiveScene().buildIndex;
 		sceneIndex++;
-		if(sceneIndex>=SceneManager.sceneCountInBuildSettings)
+		if (sceneIndex >= SceneManager.sceneCountInBuildSettings)
 		{
-			sceneIndex = SceneManager.sceneCountInBuildSettings-1;
+			sceneIndex = SceneManager.sceneCountInBuildSettings - 1;
+			OnGameFinished?.Invoke();
+			return;
 		}
 		SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
     }
