@@ -293,6 +293,18 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 6353221199716394599}
+    - target: {fileID: 8354480279651016256, guid: eae90271ed3330f4ab285b08ed97e4dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1607980366352274637}
+    - target: {fileID: 8354480279651016256, guid: eae90271ed3330f4ab285b08ed97e4dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: tryLoadNextScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354480279651016256, guid: eae90271ed3330f4ab285b08ed97e4dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

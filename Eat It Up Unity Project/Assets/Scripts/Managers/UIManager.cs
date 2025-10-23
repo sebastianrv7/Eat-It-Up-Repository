@@ -23,18 +23,22 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI gameWonTimer;
     [SerializeField]
-    private TextMeshProUGUI rareCollectableText;
+    private TextMeshProUGUI rareCollectableGameHUDText;
     [SerializeField]
-    private TextMeshProUGUI goldCollectableText;
+    private TextMeshProUGUI goldCollectableGameHUDText;
+    [SerializeField]
+    private TextMeshProUGUI rareCollectableLevelWonText;
+    [SerializeField]
+    private TextMeshProUGUI goldCollectableLevelWonText;
     [SerializeField]
     private Slider progressSlider;
 
-    private static int currentScore;
-    private static int rareCollectables;
-    private static int goldCollectables;
-    private static int initialScore;
-    private static int initialRareCollectables;
-    private static int initialGoldCollectables;
+    private  int currentScore;
+    private  int rareCollectables;
+    private  int goldCollectables;
+    private  int initialScore;
+    private  int initialRareCollectables;
+    private  int initialGoldCollectables;
     private int minutes;
     private int seconds;
     private float progressValue;
@@ -61,16 +65,16 @@ public class UIManager : MonoBehaviour
 
     void OnEnable()
     {
-        gameManager.OnPlayerWon += PlayerWon;
-        gameManager.OnPlayerWon += PlayerFinishedGame;
+        gameManager.OnPlayerWon += PlayerWonLevel;
+        //gameManager.OnPlayerWon += PlayerFinishedGame;
         gameManager.OnPlayerPause += PauseGame;
         gameManager.OnCollectableCollected += UpdateCollectables;
     }
 
     void OnDisable()
     {
-        gameManager.OnPlayerWon -= PlayerWon;
-        gameManager.OnPlayerWon -= PlayerFinishedGame;
+        gameManager.OnPlayerWon -= PlayerWonLevel;
+        //gameManager.OnPlayerWon -= PlayerFinishedGame;
         gameManager.OnPlayerPause -= PauseGame;
         gameManager.OnCollectableCollected -= UpdateCollectables;
     }
@@ -89,18 +93,20 @@ public class UIManager : MonoBehaviour
             UpdateProgressBar();
     }
 
-    public void PlayerWon()
+    public void PlayerWonLevel()
     {
         UpdateInitialCollectables(rareCollectables, goldCollectables);
         UpdateInitialScore(currentScore);
-    }
-
-    public void PlayerFinishedGame()
-    {
+        SetLevelWonHUD();
         timerActive = false;
         SetFinalTimer();
         gameWonHud.SetActive(true);
         gameHud.SetActive(false);
+    }
+
+    public void PlayerFinishedGame()
+    {
+
     }
 
     public void SetFinalTimer()
@@ -166,8 +172,9 @@ public class UIManager : MonoBehaviour
 
     public void UpdateCollectableText()
     {
-        rareCollectableText.SetText(rareCollectables.ToString("D2"));
-        goldCollectableText.SetText(goldCollectables.ToString("D2"));
+        rareCollectableGameHUDText.SetText(rareCollectables.ToString("D2"));
+        goldCollectableGameHUDText.SetText(goldCollectables.ToString("D2"));
+        
     }
 
     public void SetInitialCollectableText()
@@ -197,6 +204,12 @@ public class UIManager : MonoBehaviour
     public void UpdateScoreText()
     {
         gameTimer.SetText(currentScore.ToString("D2"));
+    }
+
+    public void SetLevelWonHUD()
+    {
+        rareCollectableLevelWonText.SetText(":" + rareCollectables.ToString("D2") + "/" + gameManager.MaxRareCollectablePerLevel.ToString("D2"));
+        goldCollectableLevelWonText.SetText(":" + goldCollectables.ToString("D2") + "/" + gameManager.MaxGoldCollectablePerLevel.ToString("D2"));
     }
 
     private IEnumerator UnpausingGame()
