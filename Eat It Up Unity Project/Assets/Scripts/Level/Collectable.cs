@@ -30,6 +30,24 @@ public class Collectable : MonoBehaviour
     [SerializeField]
     private Animator myAnimator;
 
+    public CollectableType MyCollectableType {get{ return myType; }}
+    public int MyScore {
+        get
+        {
+            switch (myType)
+            {
+                case CollectableType.Normal:
+                    return normalScore;
+                case CollectableType.Rare:
+                    return rareScore;
+                case CollectableType.Gold:
+                    return goldScore;
+                default:
+                    return normalScore;
+            }
+        }
+    }
+
     private static string Normal = "Normal";
     private static string Rare = "Rare";
     private static string Gold = "Gold";

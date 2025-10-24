@@ -23,7 +23,7 @@ PrefabInstance:
     - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: rareSprite
       value: 
-      objectReference: {fileID: -2132506157679183802, guid: ddc6b1955f1981d44bfb6bd6b6113805, type: 3}
+      objectReference: {fileID: -5564348379112770522, guid: bf0668cad9dc9cc49916d5e93aae9b60, type: 3}
     - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: normalSprite
       value: 
