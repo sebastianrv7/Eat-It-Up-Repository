@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     public void DisableController()
     {
         jump.Disable();
-        pause.Disable();
+        //pause.Disable();
     }
 
     private void PausePressed(InputAction.CallbackContext context)
@@ -48,14 +48,9 @@ public class PlayerController : MonoBehaviour
 
     private void JumpPressed(InputAction.CallbackContext context)
     {
+        if (GameManager.GamePaused)
+            return;
         OnJump?.Invoke();
     }
 
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

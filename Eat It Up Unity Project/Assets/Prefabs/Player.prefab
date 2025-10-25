@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1228653731420936430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2678568119519378356}
+  m_Layer: 8
+  m_Name: CheckFloorCollisionPositionLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2678568119519378356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228653731420936430}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.65, y: -0.95, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3435672728763728691}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2066944922940801605
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8442135418830088219}
   m_Layer: 8
-  m_Name: CheckFloorCollisionPosition
+  m_Name: CheckFloorCollisionPositionCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,6 +57,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.95, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3435672728763728691}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3719577135812315338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8929045711300741953}
+  m_Layer: 8
+  m_Name: CheckFloorCollisionPositionRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8929045711300741953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3719577135812315338}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.65, y: -0.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -294,6 +356,8 @@ Transform:
   m_Children:
   - {fileID: 4441491850352139360}
   - {fileID: 8442135418830088219}
+  - {fileID: 2678568119519378356}
+  - {fileID: 8929045711300741953}
   m_Father: {fileID: 2534749674817335614}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8480394121243139484
@@ -397,7 +461,9 @@ MonoBehaviour:
   myPlayerCollision: {fileID: 3833764034719829840}
   myPlayerController: {fileID: 8203036575830472663}
   myPlayerHealth: {fileID: 1877974916842879684}
-  floorCollisionStart: {fileID: 2066944922940801605}
+  floorCollisionStartCenter: {fileID: 2066944922940801605}
+  floorCollisionStartLeft: {fileID: 1228653731420936430}
+  floorCollisionStartRight: {fileID: 3719577135812315338}
   speed: 330
   gravity: 1.2
   gravityForce: 0.6
@@ -409,6 +475,7 @@ MonoBehaviour:
   slideForce: 0.25
   wallJumpHeight: 1.75
   wallJumpForce: 16
+  bodyCollision: {fileID: 5584656481781782714}
 --- !u!114 &3833764034719829840
 MonoBehaviour:
   m_ObjectHideFlags: 0

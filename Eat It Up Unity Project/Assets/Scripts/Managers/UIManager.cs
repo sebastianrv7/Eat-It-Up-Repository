@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,15 +15,25 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private ScoreManager scoreManager;
     [SerializeField]
+    private Button pauseButton;
+    [SerializeField]
     private GameObject gameHud;
     [SerializeField]
     private GameObject pauseGameHud;
     [SerializeField]
     private GameObject unpauseGameHud;
     [SerializeField]
+    private GameObject levelWonHud;
+    [SerializeField]
     private GameObject gameWonHud;
     [SerializeField]
-    private TextMeshProUGUI gameTimer;
+    private TextMeshProUGUI gameHUDScore;
+    [SerializeField]
+    private GameObject levelGroupParent;
+    [SerializeField]
+    private UILevelGroupManager levelGroupInfoPrefab;
+    [SerializeField]
+    private TextMeshProUGUI levelWonScore;
     [SerializeField]
     private TextMeshProUGUI gameWonTimer;
     [SerializeField]
@@ -34,12 +46,18 @@ public class UIManager : MonoBehaviour
     private TextMeshProUGUI goldCollectableLevelWonText;
     [SerializeField]
     private Slider progressSlider;
+    [SerializeField]
+    private UIStarsManager levelWonStarsManager;
+    [SerializeField]
+    private List<Sprite> numbersInSprites;
 
-    private  int rareCollectables;
-    private  int goldCollectables;
-    private  int initialScore;
-    private  int initialRareCollectables;
-    private  int initialGoldCollectables;
+    private List<UILevelGroupManager> levelGroup = new List<UILevelGroupManager>(); 
+
+    private int rareCollectables;
+    private int goldCollectables;
+    private int initialScore;
+    private int initialRareCollectables;
+    private int initialGoldCollectables;
     private int minutes;
     private int seconds;
     private float progressValue;
@@ -57,7 +75,7 @@ public class UIManager : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
 
-        gameWonHud.SetActive(false);
+        levelWonHud.SetActive(false);
         pauseGameHud.SetActive(false);
         unpauseGameHud.SetActive(false);
         gameHud.SetActive(true);
@@ -90,7 +108,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if(progressBarSet)
+        if (progressBarSet)
             UpdateProgressBar();
     }
 
@@ -100,14 +118,27 @@ public class UIManager : MonoBehaviour
         UpdateInitialScore(scoreManager.CurrentScore);
         SetLevelWonHUD();
         timerActive = false;
-        SetFinalTimer();
-        gameWonHud.SetActive(true);
+        //SetFinalTimer();
+        levelWonHud.SetActive(true);
+        ShowStars();
         gameHud.SetActive(false);
     }
 
     public void PlayerFinishedGame()
     {
-
+        gameWonHud.SetActive(true);
+        for (int i = 0; i < scoreManager.Levels; i++)
+        {
+            levelGroup.Add(Instantiate(levelGroupInfoPrefab, levelGroupParent.transform));
+            levelGroup[i].SetScore(
+                i +1,
+                scoreManager.GetCollectablesCollectedPerLevel(Collectable.CollectableType.Rare, i),
+                scoreManager.GetMaxCollectablesPerLevel(Collectable.CollectableType.Rare, i),
+                scoreManager.GetCollectablesCollectedPerLevel(Collectable.CollectableType.Gold, i),
+                scoreManager.GetMaxCollectablesPerLevel(Collectable.CollectableType.Gold, i),
+                scoreManager.GetScorePerLevel(i),
+                scoreManager.GetStarsPerLevel(i));    
+        }
     }
 
     public void SetFinalTimer()
@@ -123,12 +154,11 @@ public class UIManager : MonoBehaviour
     public void PauseGame()
     {
         pauseGameHud.SetActive(true);
+        pauseButton.interactable = false;
     }
 
     public void UnpauseGame()
     {
-        pauseGameHud.SetActive(false);
-        unpauseGameHud.SetActive(true);
         StartCoroutine(UnpausingGame());
     }
 
@@ -172,9 +202,25 @@ public class UIManager : MonoBehaviour
 
     public void UpdateCollectableText()
     {
+
+        // string rareText = rareCollectables.ToString("D2");
+        // string goldText = goldCollectables.ToString("D2");
+
+        // rareCollectableGameHUDText.SetText("");
+        // for (int i = 0; i < rareText.Length; i++)
+        // {
+        //     rareCollectableGameHUDText.text += "<sprite index=" + rareText[i].ToString() + ">";
+        // }
+
+        // goldCollectableGameHUDText.SetText("");
+        // for (int i = 0; i < goldText.Length; i++)
+        // {
+        //     goldCollectableGameHUDText.text += "<sprite index=" + goldText[i].ToString() + ">";
+        // }
+
         rareCollectableGameHUDText.SetText(rareCollectables.ToString("D2"));
         goldCollectableGameHUDText.SetText(goldCollectables.ToString("D2"));
-        
+
     }
 
     public void SetInitialCollectableText()
@@ -202,20 +248,72 @@ public class UIManager : MonoBehaviour
 
     public void UpdateScoreText()
     {
-        gameTimer.SetText(scoreManager.CurrentScore.ToString("D2"));
+        string scoreText = scoreManager.CurrentScore.ToString("D2");
+        gameHUDScore.SetText(scoreText);
+
+        // gameHUDScore.SetText("");
+
+        // for (int i = 0; i < scoreText.Length; i++)
+        // {
+        //     gameHUDScore.text += "<sprite index=" + scoreText[i].ToString() + ">";
+        // }
     }
 
     public void SetLevelWonHUD()
     {
-        rareCollectableLevelWonText.SetText(":" + rareCollectables.ToString("D2") + "/" + scoreManager.MaxRareCollectablePerLevel.ToString("D2"));
-        goldCollectableLevelWonText.SetText(":" + goldCollectables.ToString("D2") + "/" + scoreManager.MaxGoldCollectablePerLevel.ToString("D2"));
+        // string rareText = rareCollectables.ToString("D2");
+        // string maxRareText = scoreManager.MaxRareCollectablePerLevel.ToString("D2");
+        // string goldText = goldCollectables.ToString("D2");
+        // string maxGoldText = scoreManager.MaxGoldCollectablePerLevel.ToString("D2");
+        // string scoreText = scoreManager.CurrentScore.ToString("D2");
+
+        // rareCollectableLevelWonText.SetText("");
+        // for (int i = 0; i < rareText.Length; i++)
+        // {
+        //     rareCollectableLevelWonText.text += "<sprite index=" + rareText[i].ToString() + ">";
+        // }
+        // rareCollectableLevelWonText.text += "/";
+        // for (int i = 0; i < maxRareText.Length; i++)
+        // {
+        //     rareCollectableLevelWonText.text += "<sprite index=" + maxRareText[i].ToString() + ">";
+        // }
+
+        // goldCollectableLevelWonText.SetText("");
+        // for (int i = 0; i < goldText.Length; i++)
+        // {
+        //     goldCollectableLevelWonText.text += "<sprite index=" + goldText[i].ToString() + ">";
+        // }
+        // goldCollectableLevelWonText.text += "/";
+        // for (int i = 0; i < maxGoldText.Length; i++)
+        // {
+        //     goldCollectableLevelWonText.text += "<sprite index=" + maxGoldText[i].ToString() + ">";
+        // }
+
+        // levelWonScore.SetText("");
+        // for (int i = 0; i < scoreText.Length; i++)
+        // {
+        //     levelWonScore.text += "<sprite index=" + scoreText[i].ToString() + ">";
+        // }
+
+        rareCollectableLevelWonText.SetText(":" + rareCollectables.ToString("D2") + ";" + scoreManager.MaxRareCollectablePerLevel.ToString("D2"));
+        goldCollectableLevelWonText.SetText(":" + goldCollectables.ToString("D2") + ";" + scoreManager.MaxGoldCollectablePerLevel.ToString("D2"));
+        levelWonScore.SetText(scoreManager.CurrentScore.ToString("D2"));
+    }
+
+    public void ShowStars()
+    {
+        levelWonStarsManager.ShowStars(scoreManager.StarsEarned);
     }
 
     private IEnumerator UnpausingGame()
     {
+        yield return new WaitForSecondsRealtime(0.1f);
+        pauseGameHud.SetActive(false);
+        unpauseGameHud.SetActive(true);
         yield return new WaitForSecondsRealtime(3f);
         unpauseGameHud.SetActive(false);
         OnUnpauseButton?.Invoke();
+        pauseButton.interactable = true;
     }
 
     private IEnumerator CurrentTimer()
@@ -229,8 +327,9 @@ public class UIManager : MonoBehaviour
                 seconds = 0;
                 minutes++;
             }
-            gameTimer.SetText(minutes.ToString("D2") + ":" + seconds.ToString("D2"));
+            gameHUDScore.SetText(minutes.ToString("D2") + ":" + seconds.ToString("D2"));
         }
-        
+
     }
+
 }

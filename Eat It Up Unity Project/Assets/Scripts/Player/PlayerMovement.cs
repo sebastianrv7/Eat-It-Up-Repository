@@ -15,7 +15,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private PlayerHealth myPlayerHealth;
     [SerializeField]
-    private GameObject floorCollisionStart;
+    private GameObject floorCollisionStartCenter;
+    [SerializeField]
+    private GameObject floorCollisionStartLeft;
+    [SerializeField]
+    private GameObject floorCollisionStartRight;
     [SerializeField]
     private float speed = 10f;
     [SerializeField]
@@ -38,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpHeight = 10f;
     [SerializeField]
     private float wallJumpForce = 10f;
+    [SerializeField]
+    private CapsuleCollider2D bodyCollision;
 
     private MovementDirection currentDirection = MovementDirection.Right;
     private LayerMask layerMask;
@@ -100,10 +106,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!myPlayerHealth.IsAlive)
             return;
-        if (isSliding || !isGrounded)
-            TouchingFloor();
 
-        Movement();
+        if (CheckIfGrounded())
+            TouchingFloor();
+//        if (isSliding || !isGrounded)
+
+            Movement();
         //CheckIfGrounded();
     }
 
@@ -169,8 +177,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void TouchingFloor()
     {
-        if (CheckIfGrounded())
-        {
+        //if (CheckIfGrounded())
+        //{
             isGrounded = true;
             isJumping = false;
             isDoubleJumping = false;
@@ -178,13 +186,16 @@ public class PlayerMovement : MonoBehaviour
                 StopSlide();
             OnFinishJump?.Invoke();
             movementDirection.y = 0f;
-        }
+        //}
     }
 
     private bool CheckIfGrounded()
     {
         layerMask = LayerMask.GetMask("Floor");
-        if (Physics2D.Raycast(floorCollisionStart.transform.position, transform.TransformDirection(Vector2.down), 0.35f, layerMask) && !isGrounded && myRigidbody.linearVelocityY < 0)
+        if ((Physics2D.Raycast(floorCollisionStartCenter.transform.position, transform.up * -1, 0.35f, layerMask)
+            || Physics2D.Raycast(floorCollisionStartLeft.transform.position, transform.up * -1, 0.35f, layerMask)
+            || Physics2D.Raycast(floorCollisionStartRight.transform.position, transform.up * -1, 0.35f, layerMask))
+            && !isGrounded && myRigidbody.linearVelocityY < 0)
         {
             return true;
         }
@@ -216,6 +227,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = false;
         isJumping = true;
         //currentJumpCoroutine = StartCoroutine(JumpCoroutine());
+        myRigidbody.linearVelocityY = 0f;
         myRigidbody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         OnStartJump?.Invoke();
     }
