@@ -126,6 +126,7 @@ public class UIManager : MonoBehaviour
 
     public void PlayerFinishedGame()
     {
+        gameHud.SetActive(false);
         gameWonHud.SetActive(true);
         for (int i = 0; i < scoreManager.Levels; i++)
         {

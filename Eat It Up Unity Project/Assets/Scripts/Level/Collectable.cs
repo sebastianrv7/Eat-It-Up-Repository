@@ -108,6 +108,7 @@ public class Collectable : MonoBehaviour
     {
         collectedVFX.gameObject.SetActive(true);
         collectedVFX.gameObject.transform.parent = null;
+        SoundManager.instance.PlaySFX(SoundManager.SoundFXType.Collectable);
         gameObject.SetActive(false);
         // Instantiate(collectedVFX, gameObject.transform.position, Quaternion.identity);
         //Destroy(gameObject);

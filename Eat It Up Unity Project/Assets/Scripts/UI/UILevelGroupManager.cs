@@ -18,8 +18,8 @@ public class UILevelGroupManager : MonoBehaviour
     public void SetScore(int level, int rare, int maxRare, int gold, int maxGold, int score, int stars)
     {
         levelText.SetText("Level " + level.ToString());
-        rareScore.SetText(rare.ToString() + "/" + maxRare.ToString());
-        goldScore.SetText(gold.ToString() + "/" + maxGold.ToString());
+        rareScore.SetText(rare.ToString() + ";" + maxRare.ToString());
+        goldScore.SetText(gold.ToString() + ";" + maxGold.ToString());
         totalScore.SetText(score.ToString());
         starsManager.ShowStars(stars);
     }

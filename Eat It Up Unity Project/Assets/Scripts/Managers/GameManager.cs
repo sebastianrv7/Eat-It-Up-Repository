@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
         currentPlayer.GetComponent<PlayerCollision>().OnCollectableTouch -= CollectableCollected;
         currentPlayer.GetComponent<PlayerCollision>().OnCameraStopTouch -= StopCameraFollow;
         currentPlayer.GetComponent<PlayerController>().OnPause -= PauseGame;
+        SoundManager.instance.PlaySFX(SoundManager.SoundFXType.Death);
         playerIsDead = true;
         StartCoroutine(RestartingGame());
     }
@@ -115,6 +116,7 @@ public class GameManager : MonoBehaviour
         currentPlayer.GetComponent<PlayerCollision>().OnCollectableTouch += CollectableCollected;
         currentPlayer.GetComponent<PlayerCollision>().OnCameraStopTouch += StopCameraFollow;
         currentPlayer.GetComponent<PlayerController>().OnPause += PauseGame;
+        SoundManager.instance.PlaySFX(SoundManager.SoundFXType.Spawn);
     }
 
     public void StopCameraFollow()
@@ -131,6 +133,7 @@ public class GameManager : MonoBehaviour
         currentPlayer.GetComponent<PlayerCollision>().OnCameraStopTouch -= StopCameraFollow;
         currentPlayer.GetComponent<PlayerController>().OnPause -= PauseGame;
         scoreManager.UpdateScorePerLevel();
+        SoundManager.instance.PlaySFX(SoundManager.SoundFXType.Door);
         if (levelManager.CheckIfFinalLevel())
         {
             GameFinished();
