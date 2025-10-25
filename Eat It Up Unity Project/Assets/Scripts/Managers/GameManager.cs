@@ -26,13 +26,14 @@ public class GameManager : MonoBehaviour
     private GameObject currentPlayer;
     private GameObject playerFinalPosition;
     private bool playerIsDead;
-    private bool gamePaused;
+    private static bool gamePaused;
     private static int currentLevel = -1;
 
     public float PlayerStartPosition { get { return playerStartPosition.transform.position.y; } }
     public float PlayerEndPosition { get { return playerFinalPosition.transform.position.y; } }
     public float CurrentPlayerPosition { get { return currentPlayer.transform.position.y; } }
     public int CurrentLevel { get { return currentLevel; } }
+    public static bool GamePaused { get { return gamePaused; } }
 
     public delegate void Gametatus();
     public event Gametatus OnPlayerWon, OnPlayerPause, OnPlayerUnpause;
@@ -83,6 +84,7 @@ public class GameManager : MonoBehaviour
         currentPlayer.GetComponent<PlayerHealth>().OnDeath -= GameOver;
         currentPlayer.GetComponent<PlayerCollision>().OnFinishTouch -= LevelWon;
         currentPlayer.GetComponent<PlayerCollision>().OnCollectableTouch -= CollectableCollected;
+        currentPlayer.GetComponent<PlayerCollision>().OnCameraStopTouch -= StopCameraFollow;
         currentPlayer.GetComponent<PlayerController>().OnPause -= PauseGame;
         playerIsDead = true;
         StartCoroutine(RestartingGame());
@@ -111,7 +113,13 @@ public class GameManager : MonoBehaviour
         currentPlayer.GetComponent<PlayerHealth>().OnDeath += GameOver;
         currentPlayer.GetComponent<PlayerCollision>().OnFinishTouch += LevelWon;
         currentPlayer.GetComponent<PlayerCollision>().OnCollectableTouch += CollectableCollected;
+        currentPlayer.GetComponent<PlayerCollision>().OnCameraStopTouch += StopCameraFollow;
         currentPlayer.GetComponent<PlayerController>().OnPause += PauseGame;
+    }
+
+    public void StopCameraFollow()
+    {
+        cameraManager.SetTrackingTarget(null);
     }
 
     public void LevelWon()
@@ -120,6 +128,7 @@ public class GameManager : MonoBehaviour
         currentPlayer.GetComponent<PlayerHealth>().OnDeath -= GameOver;
         currentPlayer.GetComponent<PlayerCollision>().OnFinishTouch -= LevelWon;
         currentPlayer.GetComponent<PlayerCollision>().OnCollectableTouch -= CollectableCollected;
+        currentPlayer.GetComponent<PlayerCollision>().OnCameraStopTouch -= StopCameraFollow;
         currentPlayer.GetComponent<PlayerController>().OnPause -= PauseGame;
         scoreManager.UpdateScorePerLevel();
         if (levelManager.CheckIfFinalLevel())
@@ -138,9 +147,9 @@ public class GameManager : MonoBehaviour
             uiManager.UnpauseGame();
             return;
         }
+        gamePaused = true;
         currentPlayer.GetComponent<PlayerController>().DisableController();
         OnPlayerPause?.Invoke();
-        gamePaused = true;
         Time.timeScale = 0;
     }
 
@@ -167,7 +176,7 @@ public class GameManager : MonoBehaviour
 
     public void CinematicFinished()
     {
-        uiManager.PlayerWonLevel();
+        uiManager.PlayerFinishedGame();
     }
 
     private IEnumerator RestartingGame()

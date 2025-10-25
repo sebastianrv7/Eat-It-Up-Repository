@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Collectable : MonoBehaviour
 {
@@ -27,6 +28,10 @@ public class Collectable : MonoBehaviour
     private Vector3 goldSpriteScale;
     [SerializeField]
     private CollectableType myType;
+    [SerializeField]
+    private List<Image> myScoreImages;
+    [SerializeField]
+    private List<Sprite> myNumbers;
     [SerializeField]
     private Animator myAnimator;
 
@@ -71,30 +76,40 @@ public class Collectable : MonoBehaviour
             case CollectableType.Normal:
                 spriteToChange.gameObject.transform.localScale = normalSpriteScale;
                 myAnimator.SetTrigger(Normal);
-                if(normalSprite != null)
+                if (normalSprite != null)
                     spriteToChange.sprite = normalSprite;
                 break;
             case CollectableType.Rare:
                 spriteToChange.gameObject.transform.localScale = rareSpriteScale;
                 myAnimator.SetTrigger(Rare);
-                if(rareSprite != null)
+                if (rareSprite != null)
                     spriteToChange.sprite = rareSprite;
                 break;
             case CollectableType.Gold:
                 spriteToChange.gameObject.transform.localScale = goldSpriteScale;
                 myAnimator.SetTrigger(Gold);
-                if(goldSprite != null)
+                if (goldSprite != null)
                     spriteToChange.sprite = goldSprite;
                 break;
             default:
                 break;
         }
+        
+        string scoreText = MyScore.ToString("D2");
+        
+        for (int i = 0; i < scoreText.Length; i++)
+        {
+            if (myScoreImages[i] != null)
+                myScoreImages[i].sprite = myNumbers[int.Parse(scoreText[i].ToString())];
+        }
     }
 
     public void ObjectCollected()
     {
-        Instantiate(collectedVFX, gameObject.transform.position, Quaternion.identity);
+        collectedVFX.gameObject.SetActive(true);
+        collectedVFX.gameObject.transform.parent = null;
         gameObject.SetActive(false);
+        // Instantiate(collectedVFX, gameObject.transform.position, Quaternion.identity);
         //Destroy(gameObject);
     }
 }

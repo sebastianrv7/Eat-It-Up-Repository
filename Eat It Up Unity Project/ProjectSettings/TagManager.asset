@@ -8,6 +8,7 @@ TagManager:
   - Floor
   - Enemy
   - Collectible
+  - CameraStop
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Enemy
   - Finish
   - Collectible
-  - 
+  - CameraStop
   - 
   - 
   - 

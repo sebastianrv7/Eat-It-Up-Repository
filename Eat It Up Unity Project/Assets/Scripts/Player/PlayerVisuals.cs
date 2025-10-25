@@ -150,7 +150,8 @@ public class PlayerVisuals : MonoBehaviour
     private void StopSliding()
     {
         myAnimator.SetBool(Slide, false);
-        slideParticle.Stop();
+        if(slideParticle != null)
+            slideParticle.Stop();
         if(slideParticleCoroutine != null)
             StopCoroutine(slideParticleCoroutine);
     }

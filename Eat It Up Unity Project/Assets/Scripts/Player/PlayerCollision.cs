@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     public delegate void PlayerTouch();
-    public event PlayerTouch OnWallTouch, OnWallStopTouch, OnFloorTouch, OnFinishTouch;
+    public event PlayerTouch OnWallTouch, OnWallStopTouch, OnFloorTouch, OnFinishTouch, OnCameraStopTouch;
     public delegate void EnemyTouch(int damage);
     public event EnemyTouch OnDamageReceived;
     public delegate void CollectableTouch(Collectable colectable);
@@ -36,6 +36,11 @@ public class PlayerCollision : MonoBehaviour
             collectableCollected.ObjectCollected();
             OnCollectableTouch?.Invoke(collectableCollected);
         }
+        if (collision.gameObject.CompareTag("CameraStop"))
+        {
+            OnCameraStopTouch?.Invoke();
+        }
+        
     }
 
     void OnTriggerExit2D(Collider2D collision)
