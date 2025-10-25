@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: c6017c13db6894e4fb8ca2fe614b608f
+guid: 073447ce418844b4b9d7267a3ec729c1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5202956364386372841
-    second: Puertita-Sheet_0
-  - first:
-      213: 5733559996593256670
-    second: Puertita-Sheet_1
-  - first:
-      213: 3501965103773678057
-    second: Puertita-Sheet_2
-  - first:
-      213: 9076448077748629531
-    second: Puertita-Sheet_3
-  - first:
-      213: 7025930304987355545
-    second: Puertita-Sheet_4
+      213: -7242902979925661857
+    second: EndPoint_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,115 +109,40 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Puertita-Sheet_0
+      name: EndPoint_0
       rect:
         serializedVersion: 2
         x: 3
         y: 35
         width: 122
         height: 74
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 71374e6c0c26bc7b0800000000000000
-      internalID: -5202956364386372841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Puertita-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 131
-        y: 35
-        width: 122
-        height: 74
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ed8b45f6072b19f40800000000000000
-      internalID: 5733559996593256670
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Puertita-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 259
-        y: 35
-        width: 122
-        height: 74
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9e97e3a25ba799030800000000000000
-      internalID: 3501965103773678057
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Puertita-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 387
-        y: 35
-        width: 122
-        height: 74
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b10fb78007506fd70800000000000000
-      internalID: 9076448077748629531
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Puertita-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 515
-        y: 35
-        width: 122
-        height: 74
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9995c6d236e118160800000000000000
-      internalID: 7025930304987355545
+      spriteID: f57a9e24d1a0c7b90800000000000000
+      internalID: -7242902979925661857
       vertices: []
       indices: 
       edges: []
@@ -238,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 69026529425edbf49930c82c2c84e789
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -248,11 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Puertita-Sheet_0: -5202956364386372841
-      Puertita-Sheet_1: 5733559996593256670
-      Puertita-Sheet_2: 3501965103773678057
-      Puertita-Sheet_3: 9076448077748629531
-      Puertita-Sheet_4: 7025930304987355545
+      EndPoint_0: -7242902979925661857
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
