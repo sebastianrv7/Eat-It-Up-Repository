@@ -8,6 +8,14 @@ public class UIStarsManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> scoreStars;
 
+    void Awake()
+    {
+        foreach (GameObject star in scoreStars)
+        {
+            star.SetActive(false);
+        }
+    }
+
     public void ShowStars(int starsEarned)
     {
         StartCoroutine(AnimatingStars(starsEarned));

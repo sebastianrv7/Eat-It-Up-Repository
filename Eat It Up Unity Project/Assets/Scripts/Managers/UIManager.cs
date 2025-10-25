@@ -47,6 +47,10 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Slider progressSlider;
     [SerializeField]
+    private Image toggleMusicIcon;
+    [SerializeField]
+    private Image toggleSFXIcon;
+    [SerializeField]
     private UIStarsManager levelWonStarsManager;
     [SerializeField]
     private List<Sprite> numbersInSprites;
@@ -132,13 +136,13 @@ public class UIManager : MonoBehaviour
         {
             levelGroup.Add(Instantiate(levelGroupInfoPrefab, levelGroupParent.transform));
             levelGroup[i].SetScore(
-                i +1,
+                i + 1,
                 scoreManager.GetCollectablesCollectedPerLevel(Collectable.CollectableType.Rare, i),
                 scoreManager.GetMaxCollectablesPerLevel(Collectable.CollectableType.Rare, i),
                 scoreManager.GetCollectablesCollectedPerLevel(Collectable.CollectableType.Gold, i),
                 scoreManager.GetMaxCollectablesPerLevel(Collectable.CollectableType.Gold, i),
                 scoreManager.GetScorePerLevel(i),
-                scoreManager.GetStarsPerLevel(i));    
+                scoreManager.GetStarsPerLevel(i));
         }
     }
 
@@ -154,6 +158,8 @@ public class UIManager : MonoBehaviour
 
     public void PauseGame()
     {
+        toggleMusicIcon.gameObject.SetActive(SoundManager.instance.MusicEnabled);
+        toggleSFXIcon.gameObject.SetActive(SoundManager.instance.SoundFXEnabled);
         pauseGameHud.SetActive(true);
         pauseButton.interactable = false;
     }
@@ -161,6 +167,18 @@ public class UIManager : MonoBehaviour
     public void UnpauseGame()
     {
         StartCoroutine(UnpausingGame());
+    }
+
+    public void ToggleMusic()
+    {
+        SoundManager.instance.ToggleMusicVolume(!toggleMusicIcon.IsActive());
+        toggleMusicIcon.gameObject.SetActive(!toggleMusicIcon.IsActive());
+    }
+
+    public void ToggleSFX()
+    {
+        SoundManager.instance.ToggleSFXVolume(!toggleSFXIcon.IsActive());
+        toggleSFXIcon.gameObject.SetActive(!toggleSFXIcon.IsActive());
     }
 
     public void QuitGame()

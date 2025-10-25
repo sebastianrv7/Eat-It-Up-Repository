@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     private GameObject currentPlayer;
     private GameObject playerFinalPosition;
     private bool playerIsDead;
+    private static bool levelFinished;
+
     private static bool gamePaused;
     private static int currentLevel = -1;
 
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
     public float CurrentPlayerPosition { get { return currentPlayer.transform.position.y; } }
     public int CurrentLevel { get { return currentLevel; } }
     public static bool GamePaused { get { return gamePaused; } }
+    public static bool LevelFinished { get { return levelFinished; } }
 
     public delegate void Gametatus();
     public event Gametatus OnPlayerWon, OnPlayerPause, OnPlayerUnpause;
@@ -94,6 +97,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         currentLevel++;
+        levelFinished = false;
         playerFinalPosition = GameObject.FindGameObjectWithTag("Finish");
         uiManager.SetProgressBar();
         SpawnPlayer();
@@ -126,6 +130,7 @@ public class GameManager : MonoBehaviour
 
     public void LevelWon()
     {
+        levelFinished = true;
         currentPlayer.GetComponent<PlayerController>().DisableController();
         currentPlayer.GetComponent<PlayerHealth>().OnDeath -= GameOver;
         currentPlayer.GetComponent<PlayerCollision>().OnFinishTouch -= LevelWon;
@@ -185,7 +190,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator RestartingGame()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.75f);
         RestartGame();
     }
 

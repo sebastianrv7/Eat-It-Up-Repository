@@ -133,6 +133,8 @@ public class PlayerVisuals : MonoBehaviour
         myAnimator.SetBool(doubleJumping, false);
         myAnimator.SetBool(Falling, false);
         myAnimator.SetBool(Slide, false);
+        if (movementParticleCoroutine != null)
+            StopCoroutine(movementParticleCoroutine);
         movementParticleCoroutine = StartCoroutine(PlayMovementParticle());
         slideParticle.Stop();
     }

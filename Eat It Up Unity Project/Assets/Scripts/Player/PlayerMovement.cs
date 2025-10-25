@@ -106,9 +106,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!myPlayerHealth.IsAlive)
             return;
+        if (GameManager.LevelFinished)
+            return;
 
         if (CheckIfGrounded())
-            TouchingFloor();
+                TouchingFloor();
 //        if (isSliding || !isGrounded)
 
             Movement();

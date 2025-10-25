@@ -40,7 +40,12 @@ public class ScoreManager : MonoBehaviour
     public void TrackCollectablesInLevel()
     {
         if (gameManager.CurrentLevel <= rareCollectablesCollectedPerLevel.Count - 1)
-            return;
+        {
+            rareCollectablesPerLevel.RemoveAt(gameManager.CurrentLevel);
+            rareCollectablesCollectedPerLevel.RemoveAt(gameManager.CurrentLevel);
+            goldCollectablesPerLevel.RemoveAt(gameManager.CurrentLevel);
+            goldCollectablesCollectedPerLevel.RemoveAt(gameManager.CurrentLevel);
+        }
 
         rareCollectablesPerLevel.Add(new List<Collectable>());
         rareCollectablesCollectedPerLevel.Add(new List<Collectable>());
@@ -88,7 +93,7 @@ public class ScoreManager : MonoBehaviour
     public void InitializeScorePerLevel()
     {
         if (gameManager.CurrentLevel <= scorePerLevel.Count - 1)
-            return;
+            scorePerLevel.RemoveAt(gameManager.CurrentLevel);
 
         scorePerLevel.Add(currentScore);
     }
