@@ -14,7 +14,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private AudioSource sfxAudioSource;
     [SerializeField]
-    private AudioClip ambientSound;
+    private List<AudioClip> ambientSounds;
     
     [SerializeField]
     private List<SoundFXClass> soundsFX = new List<SoundFXClass>();
@@ -75,7 +75,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayAmbientMusic()
     {
-        ambientSource.clip = ambientSound;
+        ambientSource.clip = ambientSounds[Random.Range(0, ambientSounds.Count-1)];
         ambientSource.Play();
     }
 

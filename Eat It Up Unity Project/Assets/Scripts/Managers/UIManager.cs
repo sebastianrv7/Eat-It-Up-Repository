@@ -247,6 +247,11 @@ public class UIManager : MonoBehaviour
         initialScore = newInitialScore;
     }
 
+    public void ToggleGameHud(bool enable)
+    {
+        gameHud.SetActive(enable);
+    }
+
     public void UpdateScoreText()
     {
         string scoreText = scoreManager.CurrentScore.ToString("D2");

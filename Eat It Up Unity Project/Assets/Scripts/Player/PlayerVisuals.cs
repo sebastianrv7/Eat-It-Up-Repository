@@ -145,6 +145,8 @@ public class PlayerVisuals : MonoBehaviour
         myAnimator.SetBool(Falling, false);
         myAnimator.SetBool(Walk, false);
         slideParticleCoroutine = StartCoroutine(FollowSlideParticles());
+        if(movementParticleCoroutine != null)
+            StopCoroutine(movementParticleCoroutine);
         slideParticle.Play();
     }
 

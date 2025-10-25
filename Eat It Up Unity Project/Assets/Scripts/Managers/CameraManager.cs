@@ -10,10 +10,13 @@ public class CameraManager : MonoBehaviour
     [SerializeField]
     private CinemachineCamera cCamera;
     [SerializeField]
-    private string videoClip; 
+    private string videoClip;
+    [SerializeField]
+    private int timesLoopingVideo;
 
     private VideoPlayer videoPlayer;
     private Camera mainCamera;
+    private int currentVideoLoop = 1;
 
     public delegate void CinematicFinished();
     public event CinematicFinished OnCinematicFinished;
@@ -52,6 +55,12 @@ public class CameraManager : MonoBehaviour
 
     private void EndReached(VideoPlayer vp)
     {
+        if (currentVideoLoop <= timesLoopingVideo)
+        {
+            currentVideoLoop++;
+            videoPlayer.Play();
+            return;        
+        }
         OnCinematicFinished?.Invoke();
     }
 

@@ -174,6 +174,7 @@ public class GameManager : MonoBehaviour
     {
         currentPlayer.GetComponent<PlayerController>().DisableController();
         currentPlayer.GetComponent<PlayerMovement>().StopAllMovement();
+        uiManager.ToggleGameHud(false);
         cameraManager.GameFinished();
     }
 

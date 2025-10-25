@@ -177,8 +177,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void TouchingFloor()
     {
-        //if (CheckIfGrounded())
-        //{
+        if (!isGrounded)
+        {
             isGrounded = true;
             isJumping = false;
             isDoubleJumping = false;
@@ -186,7 +186,7 @@ public class PlayerMovement : MonoBehaviour
                 StopSlide();
             OnFinishJump?.Invoke();
             movementDirection.y = 0f;
-        //}
+        }
     }
 
     private bool CheckIfGrounded()
