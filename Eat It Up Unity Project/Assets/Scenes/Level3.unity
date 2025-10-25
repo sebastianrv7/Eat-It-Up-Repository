@@ -1293,7 +1293,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1646073708200876048, guid: 665fdeda05f7cb24e8e40da4e6a171e4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6399999
+      value: 1.595
       objectReference: {fileID: 0}
     - target: {fileID: 1646073708200876048, guid: 665fdeda05f7cb24e8e40da4e6a171e4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3405,7 +3405,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7578223008858019193, guid: 5a5e0bd954d671c47bdcac0488057824, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4451,7 +4451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3577663377502681672, guid: 1493184b8591abd4d83918ca3e395f53, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7261766279364492491, guid: 1493184b8591abd4d83918ca3e395f53, type: 3}
       propertyPath: m_Name
@@ -8913,11 +8913,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 466805453255490156, guid: 49d61b47a653ec94e8509000847e263d, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1556586382173405963, guid: 49d61b47a653ec94e8509000847e263d, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2718776188189415644, guid: 49d61b47a653ec94e8509000847e263d, type: 3}
       propertyPath: m_Size.y
@@ -8929,7 +8929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3012225830017740755, guid: 49d61b47a653ec94e8509000847e263d, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3174867210603403805, guid: 49d61b47a653ec94e8509000847e263d, type: 3}
       propertyPath: m_Name
