@@ -143,6 +143,7 @@ public class PlayerVisuals : MonoBehaviour
         myAnimator.SetBool(jumping, false);
         myAnimator.SetBool(doubleJumping, false);
         myAnimator.SetBool(Falling, false);
+        myAnimator.SetBool(Walk, false);
         slideParticleCoroutine = StartCoroutine(FollowSlideParticles());
         slideParticle.Play();
     }
@@ -172,9 +173,9 @@ public class PlayerVisuals : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForSeconds(.75f);
             movementParticle.transform.position = gameObject.transform.position + new Vector3(0f, -0.5f, 0f);
             movementParticle.Emit(1);
-            yield return new WaitForSeconds(1);
         }
     }
 

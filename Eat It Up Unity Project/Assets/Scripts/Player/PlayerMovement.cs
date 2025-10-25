@@ -195,10 +195,12 @@ public class PlayerMovement : MonoBehaviour
         if ((Physics2D.Raycast(floorCollisionStartCenter.transform.position, transform.up * -1, 0.35f, layerMask)
             || Physics2D.Raycast(floorCollisionStartLeft.transform.position, transform.up * -1, 0.35f, layerMask)
             || Physics2D.Raycast(floorCollisionStartRight.transform.position, transform.up * -1, 0.35f, layerMask))
-            && !isGrounded && myRigidbody.linearVelocityY < 0)
+            //&& !isGrounded
+            && myRigidbody.linearVelocityY <= 0)
         {
             return true;
         }
+        isGrounded = false;
         return false;
     }
 
@@ -230,6 +232,7 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody.linearVelocityY = 0f;
         myRigidbody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         OnStartJump?.Invoke();
+        SoundManager.instance.PlaySFX(SoundManager.SoundFXType.Jump);
     }
 
     private void DoubleJump()
@@ -242,6 +245,7 @@ public class PlayerMovement : MonoBehaviour
         //currentJumpCoroutine = StartCoroutine(DoubleJumpCoroutine());
         myRigidbody.linearVelocityY = 0f;
         myRigidbody.AddForce(new Vector2(0f, doubleJumpForce), ForceMode2D.Impulse);
+        SoundManager.instance.PlaySFX(SoundManager.SoundFXType.DoubleJump);
         OnStartDoubleJump?.Invoke();
     }
 
@@ -255,6 +259,7 @@ public class PlayerMovement : MonoBehaviour
 
         isJumping = true;
         isDoubleJumping = false;
+        SoundManager.instance.PlaySFX(SoundManager.SoundFXType.Jump);
         OnStartJump?.Invoke();
     }
 

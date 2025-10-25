@@ -45,7 +45,7 @@ public class CameraManager : MonoBehaviour
         videoPlayer.loopPointReached += EndReached;
         videoPlayer.playOnAwake = false;
         videoPlayer.renderMode = VideoRenderMode.CameraNearPlane;
-        videoPlayer.url = Application.streamingAssetsPath + "/" + videoClip;
+        videoPlayer.url = Application.streamingAssetsPath + "/" + "Videos/" + videoClip;
         videoPlayer.isLooping = false;
         videoPlayer.Play();
     }

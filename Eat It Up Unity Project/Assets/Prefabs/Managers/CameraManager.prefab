@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cCamera: {fileID: 9057201137312093491}
-  videoClip: "Animaci\xF3nFinal.mp4"
+  videoClip: VictoryClip.mp4
 --- !u!1 &8494436053825377272
 GameObject:
   m_ObjectHideFlags: 0

@@ -9741,6 +9741,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -120
       objectReference: {fileID: 0}
+    - target: {fileID: 4136742337056061538, guid: b7146f48ae6c7f54bb44ca69e25985c7, type: 3}
+      propertyPath: ambientSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b627785a21676344bacb313190373229, type: 3}
     - target: {fileID: 4170428637583281162, guid: b7146f48ae6c7f54bb44ca69e25985c7, type: 3}
       propertyPath: m_IsActive
       value: 0
