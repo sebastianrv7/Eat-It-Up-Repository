@@ -1,0 +1,2665 @@
+fileFormatVersion: 2
+guid: 2adcba30192f2a145b6d2ca3f9d67209
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3176851388619642507
+    second: Fondo fase 1-Sheet_0
+  - first:
+      213: -8255173280890846272
+    second: Fondo fase 1-Sheet_1
+  - first:
+      213: -1185166118278434372
+    second: Fondo fase 1-Sheet_2
+  - first:
+      213: -3059896412289165937
+    second: Fondo fase 1-Sheet_3
+  - first:
+      213: -6076412204383062404
+    second: Fondo fase 1-Sheet_4
+  - first:
+      213: 864651787852221742
+    second: Fondo fase 1-Sheet_5
+  - first:
+      213: -746000381046099212
+    second: Fondo fase 1-Sheet_6
+  - first:
+      213: -6436650788721445513
+    second: Fondo fase 1-Sheet_7
+  - first:
+      213: 6883619586750267759
+    second: Fondo fase 1-Sheet_8
+  - first:
+      213: 3676434971645126183
+    second: Fondo fase 1-Sheet_9
+  - first:
+      213: -8141939380930245757
+    second: Fondo fase 1-Sheet_10
+  - first:
+      213: -2138589546791370667
+    second: Fondo fase 1-Sheet_11
+  - first:
+      213: 7531398933762778713
+    second: Fondo fase 1-Sheet_12
+  - first:
+      213: -7194000499662297686
+    second: Fondo fase 1-Sheet_13
+  - first:
+      213: -893479478433538766
+    second: Fondo fase 1-Sheet_14
+  - first:
+      213: 8783625265721881762
+    second: Fondo fase 1-Sheet_15
+  - first:
+      213: -4106418013783786455
+    second: Fondo fase 1-Sheet_16
+  - first:
+      213: 7078786550837353027
+    second: Fondo fase 1-Sheet_17
+  - first:
+      213: -9125073341149315730
+    second: Fondo fase 1-Sheet_18
+  - first:
+      213: 1559623736031692367
+    second: Fondo fase 1-Sheet_19
+  - first:
+      213: -1058888985149683206
+    second: Fondo fase 1-Sheet_20
+  - first:
+      213: 8889084215030218952
+    second: Fondo fase 1-Sheet_21
+  - first:
+      213: -2072625592043585202
+    second: Fondo fase 1-Sheet_22
+  - first:
+      213: 8160124397385657344
+    second: Fondo fase 1-Sheet_23
+  - first:
+      213: 3860970657223822531
+    second: Fondo fase 1-Sheet_24
+  - first:
+      213: 3874517698967080700
+    second: Fondo fase 1-Sheet_25
+  - first:
+      213: 8831473882070243730
+    second: Fondo fase 1-Sheet_26
+  - first:
+      213: 8808231788986481213
+    second: Fondo fase 1-Sheet_27
+  - first:
+      213: 4218236885131834517
+    second: Fondo fase 1-Sheet_28
+  - first:
+      213: 5784952408463001356
+    second: Fondo fase 1-Sheet_29
+  - first:
+      213: -1484906041592046243
+    second: Fondo fase 1-Sheet_30
+  - first:
+      213: -386958316613801696
+    second: Fondo fase 1-Sheet_31
+  - first:
+      213: 8911028556672533872
+    second: Fondo fase 1-Sheet_32
+  - first:
+      213: -2079113860568931691
+    second: Fondo fase 1-Sheet_33
+  - first:
+      213: 5241613050968257942
+    second: Fondo fase 1-Sheet_34
+  - first:
+      213: 6501576597048694566
+    second: Fondo fase 1-Sheet_35
+  - first:
+      213: 8700210331264407625
+    second: Fondo fase 1-Sheet_36
+  - first:
+      213: -4769521923909477721
+    second: Fondo fase 1-Sheet_37
+  - first:
+      213: 2436788261852034220
+    second: Fondo fase 1-Sheet_38
+  - first:
+      213: 5027020996676481199
+    second: Fondo fase 1-Sheet_39
+  - first:
+      213: 6010611987338175310
+    second: Fondo fase 1-Sheet_40
+  - first:
+      213: 8302649363024547482
+    second: Fondo fase 1-Sheet_41
+  - first:
+      213: 4145986382361981540
+    second: Fondo fase 1-Sheet_42
+  - first:
+      213: -5957281311689102644
+    second: Fondo fase 1-Sheet_43
+  - first:
+      213: 3885541274860460584
+    second: Fondo fase 1-Sheet_44
+  - first:
+      213: 4138494633176503659
+    second: Fondo fase 1-Sheet_45
+  - first:
+      213: -6853323014741316130
+    second: Fondo fase 1-Sheet_46
+  - first:
+      213: -8139269624623762645
+    second: Fondo fase 1-Sheet_47
+  - first:
+      213: 8413467235496861412
+    second: Fondo fase 1-Sheet_48
+  - first:
+      213: -4680977495409295397
+    second: Fondo fase 1-Sheet_49
+  - first:
+      213: 3655433537000897775
+    second: Fondo fase 1-Sheet_50
+  - first:
+      213: -7594630943338615856
+    second: Fondo fase 1-Sheet_51
+  - first:
+      213: 8653971116114894255
+    second: Fondo fase 1-Sheet_52
+  - first:
+      213: 2238394888627155073
+    second: Fondo fase 1-Sheet_53
+  - first:
+      213: -7878573552262577693
+    second: Fondo fase 1-Sheet_54
+  - first:
+      213: 8402886932537880656
+    second: Fondo fase 1-Sheet_55
+  - first:
+      213: 7342249749882540811
+    second: Fondo fase 1-Sheet_56
+  - first:
+      213: -8940821590116013989
+    second: Fondo fase 1-Sheet_57
+  - first:
+      213: 6384714368288254437
+    second: Fondo fase 1-Sheet_58
+  - first:
+      213: 2304916290624117725
+    second: Fondo fase 1-Sheet_59
+  - first:
+      213: 7867884941265011989
+    second: Fondo fase 1-Sheet_60
+  - first:
+      213: 3308077323372698096
+    second: Fondo fase 1-Sheet_61
+  - first:
+      213: 3912551396391099999
+    second: Fondo fase 1-Sheet_62
+  - first:
+      213: 2072794831642259121
+    second: Fondo fase 1-Sheet_63
+  - first:
+      213: -7060271745105635635
+    second: Fondo fase 1-Sheet_64
+  - first:
+      213: -3799238728143895718
+    second: Fondo fase 1-Sheet_65
+  - first:
+      213: -8451508644718928265
+    second: Fondo fase 1-Sheet_66
+  - first:
+      213: -4011744948049328725
+    second: Fondo fase 1-Sheet_67
+  - first:
+      213: 8647929378510569337
+    second: Fondo fase 1-Sheet_68
+  - first:
+      213: -8521343066381162557
+    second: Fondo fase 1-Sheet_69
+  - first:
+      213: 1493234753132753633
+    second: Fondo fase 1-Sheet_70
+  - first:
+      213: 1413471516008406372
+    second: Fondo fase 1-Sheet_71
+  - first:
+      213: 5808282252901585120
+    second: Fondo fase 1-Sheet_72
+  - first:
+      213: 354523898960748274
+    second: Fondo fase 1-Sheet_73
+  - first:
+      213: -3094586281473499558
+    second: Fondo fase 1-Sheet_74
+  - first:
+      213: -6849555981633398312
+    second: Fondo fase 1-Sheet_75
+  - first:
+      213: 1203813723869579737
+    second: Fondo fase 1-Sheet_76
+  - first:
+      213: 3006397411270445755
+    second: Fondo fase 1-Sheet_77
+  - first:
+      213: -7555800142450531757
+    second: Fondo fase 1-Sheet_78
+  - first:
+      213: 7723620827291464266
+    second: Fondo fase 1-Sheet_79
+  - first:
+      213: -3558352465541703462
+    second: Fondo fase 1-Sheet_80
+  - first:
+      213: -5797180994130469504
+    second: Fondo fase 1-Sheet_81
+  - first:
+      213: 4023214751420385111
+    second: Fondo fase 1-Sheet_82
+  - first:
+      213: 530149041645492318
+    second: Fondo fase 1-Sheet_83
+  - first:
+      213: -7983274326046519751
+    second: Fondo fase 1-Sheet_84
+  - first:
+      213: 2108465640844453106
+    second: Fondo fase 1-Sheet_85
+  - first:
+      213: -6020822515056182994
+    second: Fondo fase 1-Sheet_86
+  - first:
+      213: 528510306450834016
+    second: Fondo fase 1-Sheet_87
+  - first:
+      213: 4508102420909907077
+    second: Fondo fase 1-Sheet_88
+  - first:
+      213: 4724777419385660702
+    second: Fondo fase 1-Sheet_89
+  - first:
+      213: 8735982359896371388
+    second: Fondo fase 1-Sheet_90
+  - first:
+      213: 5693105612433958151
+    second: Fondo fase 1-Sheet_91
+  - first:
+      213: 9183123798982124097
+    second: Fondo fase 1-Sheet_92
+  - first:
+      213: 4303934038150426878
+    second: Fondo fase 1-Sheet_93
+  - first:
+      213: -2821570228012654528
+    second: Fondo fase 1-Sheet_94
+  - first:
+      213: 6447512261876575856
+    second: Fondo fase 1-Sheet_95
+  - first:
+      213: 7320180867621165762
+    second: Fondo fase 1-Sheet_96
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 3605
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 579ae156e7e89e3d0800000000000000
+      internalID: -3176851388619642507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 3605
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c3843983abbf6d80800000000000000
+      internalID: -8255173280890846272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 3605
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb17f28d1b17d8fe0800000000000000
+      internalID: -1185166118278434372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 3605
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f851300dc601985d0800000000000000
+      internalID: -3059896412289165937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 3605
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7636e85b4f3caba0800000000000000
+      internalID: -6076412204383062404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 3605
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2d865d483cdffb00800000000000000
+      internalID: 864651787852221742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 3605
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f2f07d1b9ca5a5f0800000000000000
+      internalID: -746000381046099212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 3605
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7753503e53c6ca6a0800000000000000
+      internalID: -6436650788721445513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 2289
+        y: 3605
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f61cb2d0b87878f50800000000000000
+      internalID: 6883619586750267759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 2574
+        y: 3605
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7262bbcc022550330800000000000000
+      internalID: 3676434971645126183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 2859
+        y: 3605
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38b83e85545020f80800000000000000
+      internalID: -8141939380930245757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 3144
+        y: 3605
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 550032f43243252e0800000000000000
+      internalID: -2138589546791370667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 3429
+        y: 3605
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 956afac5d67e48860800000000000000
+      internalID: 7531398933762778713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 3714
+        y: 3605
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa565a739a6c92c90800000000000000
+      internalID: -7194000499662297686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 3110
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23d1ed1f529b993f0800000000000000
+      internalID: -893479478433538766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 3110
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a4bf7b34a4b5e970800000000000000
+      internalID: 8783625265721881762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 3110
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92cf62db2921307c0800000000000000
+      internalID: -4106418013783786455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 3110
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34a197becd6ec3260800000000000000
+      internalID: 7078786550837353027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 3110
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6d7867942a3d5180800000000000000
+      internalID: -9125073341149315730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 3110
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f46cf615685e4a510800000000000000
+      internalID: 1559623736031692367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 3110
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af9449704121e41f0800000000000000
+      internalID: -1058888985149683206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 3110
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c088674ffe5c5b70800000000000000
+      internalID: 8889084215030218952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 2289
+        y: 3110
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e41cbd9510e8c33e0800000000000000
+      internalID: -2072625592043585202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 2574
+        y: 3110
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00cab2db7e59e3170800000000000000
+      internalID: 8160124397385657344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 2859
+        y: 3110
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cc48004b5ce49530800000000000000
+      internalID: 3860970657223822531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 3144
+        y: 3110
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfe85e2b15d05c530800000000000000
+      internalID: 3874517698967080700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 3429
+        y: 3110
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 299dfef54b2bf8a70800000000000000
+      internalID: 8831473882070243730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 3714
+        y: 3110
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3ab7d1e4202d3a70800000000000000
+      internalID: 8808231788986481213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 2615
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 594bbbc09103a8a30800000000000000
+      internalID: 4218236885131834517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 2615
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c074af4c097484050800000000000000
+      internalID: 5784952408463001356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 2615
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5d131292dd846be0800000000000000
+      internalID: -1484906041592046243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 2615
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 029e953167f31aaf0800000000000000
+      internalID: -386958316613801696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 2615
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07504d772455aab70800000000000000
+      internalID: 8911028556672533872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 2615
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 592a23d95f08523e0800000000000000
+      internalID: -2079113860568931691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 2615
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 695b3017c43fdb840800000000000000
+      internalID: 5241613050968257942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 2615
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 627941bd77d3a3a50800000000000000
+      internalID: 6501576597048694566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 2289
+        y: 2615
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 948d23a533b5db870800000000000000
+      internalID: 8700210331264407625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 2574
+        y: 2615
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aa10f884114fcdb0800000000000000
+      internalID: -4769521923909477721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 2859
+        y: 2615
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca43884730631d120800000000000000
+      internalID: 2436788261852034220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 3144
+        y: 2615
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa0f45156f093c540800000000000000
+      internalID: 5027020996676481199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 3429
+        y: 2615
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e432ff3c1cbf96350800000000000000
+      internalID: 6010611987338175310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 3714
+        y: 2615
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9e83b93b9fe83370800000000000000
+      internalID: 8302649363024547482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 2120
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 462fa4cf5a0898930800000000000000
+      internalID: 4145986382361981540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 2120
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccaa2b5c53c735da0800000000000000
+      internalID: -5957281311689102644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 2120
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82a1d28f3373ce530800000000000000
+      internalID: 3885541274860460584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 2120
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b65985331f2ee6930800000000000000
+      internalID: 4138494633176503659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 2120
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edda55f470b14e0a0800000000000000
+      internalID: -6853323014741316130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 2120
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b237c2d66618b0f80800000000000000
+      internalID: -8139269624623762645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 2120
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ee9d2dcfd3a2c470800000000000000
+      internalID: 8413467235496861412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 2120
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdff780d4c3d90fb0800000000000000
+      internalID: -4680977495409295397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 2289
+        y: 2120
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fecfcf04f65bab230800000000000000
+      internalID: 3655433537000897775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 2574
+        y: 2120
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dbac1625637a9690800000000000000
+      internalID: -7594630943338615856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 2859
+        y: 2120
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fadd48021e4191870800000000000000
+      internalID: 8653971116114894255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 3144
+        y: 2120
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 180fbabaa40601f10800000000000000
+      internalID: 2238394888627155073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 3429
+        y: 2120
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e10a90c81fa9a290800000000000000
+      internalID: -7878573552262577693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 3714
+        y: 2120
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05031bd052d0d9470800000000000000
+      internalID: 8402886932537880656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1625
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0313f12f39e4e560800000000000000
+      internalID: 7342249749882540811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1625
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b58edf06222dbe380800000000000000
+      internalID: -8940821590116013989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 1625
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e9672ae3ef0b9850800000000000000
+      internalID: 6384714368288254437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 1625
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddb59a38725bcff10800000000000000
+      internalID: 2304916290624117725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 1625
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5150fb11ba7503d60800000000000000
+      internalID: 7867884941265011989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 1625
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f997257cc6a8ed20800000000000000
+      internalID: 3308077323372698096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 1625
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5e9953f3cc2c4630800000000000000
+      internalID: 3912551396391099999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 1625
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1be6d40daeb04cc10800000000000000
+      internalID: 2072794831642259121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_64
+      rect:
+        serializedVersion: 2
+        x: 2289
+        y: 1625
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc650473140e40e90800000000000000
+      internalID: -7060271745105635635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_65
+      rect:
+        serializedVersion: 2
+        x: 2574
+        y: 1625
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5383188184664bc0800000000000000
+      internalID: -3799238728143895718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_66
+      rect:
+        serializedVersion: 2
+        x: 2859
+        y: 1625
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77e92676aa536ba80800000000000000
+      internalID: -8451508644718928265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_67
+      rect:
+        serializedVersion: 2
+        x: 3144
+        y: 1625
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba54d02993b6358c0800000000000000
+      internalID: -4011744948049328725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_68
+      rect:
+        serializedVersion: 2
+        x: 3429
+        y: 1625
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97f79c873fd930870800000000000000
+      internalID: 8647929378510569337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_69
+      rect:
+        serializedVersion: 2
+        x: 3714
+        y: 1625
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c7ec1f01ab1eb980800000000000000
+      internalID: -8521343066381162557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_70
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1130
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e2feb2b81909b410800000000000000
+      internalID: 1493234753132753633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_71
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1130
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46d50dbdad8ad9310800000000000000
+      internalID: 1413471516008406372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_72
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 1130
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e097677fe92b9050800000000000000
+      internalID: 5808282252901585120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_73
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 1130
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fe11f59b958be400800000000000000
+      internalID: 354523898960748274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_74
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 1130
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5e99fd3c22dd05d0800000000000000
+      internalID: -3094586281473499558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_75
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 1130
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d9d69d002d71f0a0800000000000000
+      internalID: -6849555981633398312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_76
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 1130
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d98cfa243ec4b010800000000000000
+      internalID: 1203813723869579737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_77
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 1130
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbacd68548ed8b920800000000000000
+      internalID: 3006397411270445755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_78
+      rect:
+        serializedVersion: 2
+        x: 2289
+        y: 1130
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 352e3638dc7642790800000000000000
+      internalID: -7555800142450531757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_79
+      rect:
+        serializedVersion: 2
+        x: 2574
+        y: 1130
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a42348e8830df2b60800000000000000
+      internalID: 7723620827291464266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_80
+      rect:
+        serializedVersion: 2
+        x: 2859
+        y: 1130
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad850c919413e9ec0800000000000000
+      internalID: -3558352465541703462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_81
+      rect:
+        serializedVersion: 2
+        x: 3144
+        y: 1130
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08d1532c9964c8fa0800000000000000
+      internalID: -5797180994130469504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_82
+      rect:
+        serializedVersion: 2
+        x: 3429
+        y: 1130
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7570681208455d730800000000000000
+      internalID: 4023214751420385111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_83
+      rect:
+        serializedVersion: 2
+        x: 3714
+        y: 1130
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e581b499eb77b5700800000000000000
+      internalID: 530149041645492318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_84
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 635
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93e40833c46b53190800000000000000
+      internalID: -7983274326046519751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_85
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 635
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f466a74456c24d10800000000000000
+      internalID: 2108465640844453106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_86
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 635
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e29f66e72ddb17ca0800000000000000
+      internalID: -6020822515056182994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_87
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 635
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0628224d255a55700800000000000000
+      internalID: 528510306450834016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_88
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 635
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58cd961544fff8e30800000000000000
+      internalID: 4508102420909907077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_89
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 635
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e15e44da708c19140800000000000000
+      internalID: 4724777419385660702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_90
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 635
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb0b3bdcba17c3970800000000000000
+      internalID: 8735982359896371388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_91
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 635
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 705a8e12469f10f40800000000000000
+      internalID: 5693105612433958151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_92
+      rect:
+        serializedVersion: 2
+        x: 2289
+        y: 635
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 142e3ced072017f70800000000000000
+      internalID: 9183123798982124097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_93
+      rect:
+        serializedVersion: 2
+        x: 2574
+        y: 635
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef03ba85435aabb30800000000000000
+      internalID: 4303934038150426878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_94
+      rect:
+        serializedVersion: 2
+        x: 2859
+        y: 635
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 040ec72b3d4c7d8d0800000000000000
+      internalID: -2821570228012654528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_95
+      rect:
+        serializedVersion: 2
+        x: 3144
+        y: 635
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07ee026ed3a2a7950800000000000000
+      internalID: 6447512261876575856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fondo fase 1-Sheet_96
+      rect:
+        serializedVersion: 2
+        x: 3429
+        y: 635
+        width: 272
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ca9b2217b1869560800000000000000
+      internalID: 7320180867621165762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Fondo fase 1-Sheet_0: -3176851388619642507
+      Fondo fase 1-Sheet_1: -8255173280890846272
+      Fondo fase 1-Sheet_10: -8141939380930245757
+      Fondo fase 1-Sheet_11: -2138589546791370667
+      Fondo fase 1-Sheet_12: 7531398933762778713
+      Fondo fase 1-Sheet_13: -7194000499662297686
+      Fondo fase 1-Sheet_14: -893479478433538766
+      Fondo fase 1-Sheet_15: 8783625265721881762
+      Fondo fase 1-Sheet_16: -4106418013783786455
+      Fondo fase 1-Sheet_17: 7078786550837353027
+      Fondo fase 1-Sheet_18: -9125073341149315730
+      Fondo fase 1-Sheet_19: 1559623736031692367
+      Fondo fase 1-Sheet_2: -1185166118278434372
+      Fondo fase 1-Sheet_20: -1058888985149683206
+      Fondo fase 1-Sheet_21: 8889084215030218952
+      Fondo fase 1-Sheet_22: -2072625592043585202
+      Fondo fase 1-Sheet_23: 8160124397385657344
+      Fondo fase 1-Sheet_24: 3860970657223822531
+      Fondo fase 1-Sheet_25: 3874517698967080700
+      Fondo fase 1-Sheet_26: 8831473882070243730
+      Fondo fase 1-Sheet_27: 8808231788986481213
+      Fondo fase 1-Sheet_28: 4218236885131834517
+      Fondo fase 1-Sheet_29: 5784952408463001356
+      Fondo fase 1-Sheet_3: -3059896412289165937
+      Fondo fase 1-Sheet_30: -1484906041592046243
+      Fondo fase 1-Sheet_31: -386958316613801696
+      Fondo fase 1-Sheet_32: 8911028556672533872
+      Fondo fase 1-Sheet_33: -2079113860568931691
+      Fondo fase 1-Sheet_34: 5241613050968257942
+      Fondo fase 1-Sheet_35: 6501576597048694566
+      Fondo fase 1-Sheet_36: 8700210331264407625
+      Fondo fase 1-Sheet_37: -4769521923909477721
+      Fondo fase 1-Sheet_38: 2436788261852034220
+      Fondo fase 1-Sheet_39: 5027020996676481199
+      Fondo fase 1-Sheet_4: -6076412204383062404
+      Fondo fase 1-Sheet_40: 6010611987338175310
+      Fondo fase 1-Sheet_41: 8302649363024547482
+      Fondo fase 1-Sheet_42: 4145986382361981540
+      Fondo fase 1-Sheet_43: -5957281311689102644
+      Fondo fase 1-Sheet_44: 3885541274860460584
+      Fondo fase 1-Sheet_45: 4138494633176503659
+      Fondo fase 1-Sheet_46: -6853323014741316130
+      Fondo fase 1-Sheet_47: -8139269624623762645
+      Fondo fase 1-Sheet_48: 8413467235496861412
+      Fondo fase 1-Sheet_49: -4680977495409295397
+      Fondo fase 1-Sheet_5: 864651787852221742
+      Fondo fase 1-Sheet_50: 3655433537000897775
+      Fondo fase 1-Sheet_51: -7594630943338615856
+      Fondo fase 1-Sheet_52: 8653971116114894255
+      Fondo fase 1-Sheet_53: 2238394888627155073
+      Fondo fase 1-Sheet_54: -7878573552262577693
+      Fondo fase 1-Sheet_55: 8402886932537880656
+      Fondo fase 1-Sheet_56: 7342249749882540811
+      Fondo fase 1-Sheet_57: -8940821590116013989
+      Fondo fase 1-Sheet_58: 6384714368288254437
+      Fondo fase 1-Sheet_59: 2304916290624117725
+      Fondo fase 1-Sheet_6: -746000381046099212
+      Fondo fase 1-Sheet_60: 7867884941265011989
+      Fondo fase 1-Sheet_61: 3308077323372698096
+      Fondo fase 1-Sheet_62: 3912551396391099999
+      Fondo fase 1-Sheet_63: 2072794831642259121
+      Fondo fase 1-Sheet_64: -7060271745105635635
+      Fondo fase 1-Sheet_65: -3799238728143895718
+      Fondo fase 1-Sheet_66: -8451508644718928265
+      Fondo fase 1-Sheet_67: -4011744948049328725
+      Fondo fase 1-Sheet_68: 8647929378510569337
+      Fondo fase 1-Sheet_69: -8521343066381162557
+      Fondo fase 1-Sheet_7: -6436650788721445513
+      Fondo fase 1-Sheet_70: 1493234753132753633
+      Fondo fase 1-Sheet_71: 1413471516008406372
+      Fondo fase 1-Sheet_72: 5808282252901585120
+      Fondo fase 1-Sheet_73: 354523898960748274
+      Fondo fase 1-Sheet_74: -3094586281473499558
+      Fondo fase 1-Sheet_75: -6849555981633398312
+      Fondo fase 1-Sheet_76: 1203813723869579737
+      Fondo fase 1-Sheet_77: 3006397411270445755
+      Fondo fase 1-Sheet_78: -7555800142450531757
+      Fondo fase 1-Sheet_79: 7723620827291464266
+      Fondo fase 1-Sheet_8: 6883619586750267759
+      Fondo fase 1-Sheet_80: -3558352465541703462
+      Fondo fase 1-Sheet_81: -5797180994130469504
+      Fondo fase 1-Sheet_82: 4023214751420385111
+      Fondo fase 1-Sheet_83: 530149041645492318
+      Fondo fase 1-Sheet_84: -7983274326046519751
+      Fondo fase 1-Sheet_85: 2108465640844453106
+      Fondo fase 1-Sheet_86: -6020822515056182994
+      Fondo fase 1-Sheet_87: 528510306450834016
+      Fondo fase 1-Sheet_88: 4508102420909907077
+      Fondo fase 1-Sheet_89: 4724777419385660702
+      Fondo fase 1-Sheet_9: 3676434971645126183
+      Fondo fase 1-Sheet_90: 8735982359896371388
+      Fondo fase 1-Sheet_91: 5693105612433958151
+      Fondo fase 1-Sheet_92: 9183123798982124097
+      Fondo fase 1-Sheet_93: 4303934038150426878
+      Fondo fase 1-Sheet_94: -2821570228012654528
+      Fondo fase 1-Sheet_95: 6447512261876575856
+      Fondo fase 1-Sheet_96: 7320180867621165762
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
