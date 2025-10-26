@@ -325,8 +325,8 @@ public class UIManager : MonoBehaviour
         //     levelWonScore.text += "<sprite index=" + scoreText[i].ToString() + ">";
         // }
 
-        rareCollectableLevelWonText.SetText(":" + rareCollectables.ToString("D2") + ";" + scoreManager.MaxRareCollectablePerLevel.ToString("D2"));
-        goldCollectableLevelWonText.SetText(":" + goldCollectables.ToString("D2") + ";" + scoreManager.MaxGoldCollectablePerLevel.ToString("D2"));
+        rareCollectableLevelWonText.SetText(rareCollectables.ToString("D2") + ";" + scoreManager.MaxRareCollectablePerLevel.ToString("D2"));
+        goldCollectableLevelWonText.SetText(goldCollectables.ToString("D2") + ";" + scoreManager.MaxGoldCollectablePerLevel.ToString("D2"));
         levelWonScore.SetText(scoreManager.CurrentScore.ToString("D2"));
     }
 

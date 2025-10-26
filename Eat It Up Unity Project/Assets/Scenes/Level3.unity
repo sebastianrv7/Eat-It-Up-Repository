@@ -2956,6 +2956,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1805821259}
     m_Modifications:
+    - target: {fileID: 241740805305969023, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1187997296664429290, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -2965,12 +2969,16 @@ PrefabInstance:
       value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 3047678846389659549, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2939063
+      objectReference: {fileID: 0}
+    - target: {fileID: 3047678846389659549, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.16
       objectReference: {fileID: 0}
     - target: {fileID: 3047678846389659549, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 97.03
+      value: 96.7
       objectReference: {fileID: 0}
     - target: {fileID: 3047678846389659549, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3008,6 +3016,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -2364251840517316634, guid: 13f866791d385cd44865fe702b75c8a2, type: 3}
+    - target: {fileID: 3161185197642734724, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3300606788261057160, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -3047,6 +3059,10 @@ PrefabInstance:
     - target: {fileID: 7260134865227708881, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
       propertyPath: m_Offset.x
       value: -0.017407745
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157293037645158191, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
