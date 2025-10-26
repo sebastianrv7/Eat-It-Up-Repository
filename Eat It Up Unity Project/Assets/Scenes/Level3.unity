@@ -2978,7 +2978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3047678846389659549, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 96.7
+      value: 97.52
       objectReference: {fileID: 0}
     - target: {fileID: 3047678846389659549, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3048,6 +3048,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 3925846016943850184, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.063125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925846016943850184, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 6370359897374694609, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
       propertyPath: m_Name
       value: PlataformaLargaDoble (3)
@@ -3055,6 +3063,10 @@ PrefabInstance:
     - target: {fileID: 7260134865227708881, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
       propertyPath: m_Size.x
       value: 1.5775466
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260134865227708881, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7260134865227708881, guid: b94d5b7cb121f864c9118fafdfa40a78, type: 3}
       propertyPath: m_Offset.x
@@ -7962,6 +7974,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1805821259}
     m_Modifications:
+    - target: {fileID: 2718776188189415644, guid: 49d61b47a653ec94e8509000847e263d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3174867210603403805, guid: 49d61b47a653ec94e8509000847e263d, type: 3}
       propertyPath: m_Name
       value: BloqueBordeLargo2Izquierdo (3)
