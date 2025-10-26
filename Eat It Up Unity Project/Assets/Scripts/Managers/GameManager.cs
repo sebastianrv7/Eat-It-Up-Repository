@@ -180,11 +180,13 @@ public class GameManager : MonoBehaviour
         currentPlayer.GetComponent<PlayerController>().DisableController();
         currentPlayer.GetComponent<PlayerMovement>().StopAllMovement();
         uiManager.ToggleGameHud(false);
+        SoundManager.instance.StopAllSounds();
         cameraManager.GameFinished();
     }
 
     public void CinematicFinished()
     {
+        SoundManager.instance.PlayFinalCinematicSound();
         uiManager.PlayerFinishedGame();
     }
 

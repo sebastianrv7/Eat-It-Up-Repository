@@ -47,6 +47,10 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Slider progressSlider;
     [SerializeField]
+    private Slider musicSlider;
+    [SerializeField]
+    private Slider sfxSlider;
+    [SerializeField]
     private Image toggleMusicIcon;
     [SerializeField]
     private Image toggleSFXIcon;
@@ -160,6 +164,8 @@ public class UIManager : MonoBehaviour
     {
         toggleMusicIcon.gameObject.SetActive(SoundManager.instance.MusicEnabled);
         toggleSFXIcon.gameObject.SetActive(SoundManager.instance.SoundFXEnabled);
+        musicSlider.value = SoundManager.instance.GetMusicHUDValue();
+        sfxSlider.value = SoundManager.instance.GetSFXHUDValue();
         pauseGameHud.SetActive(true);
         pauseButton.interactable = false;
     }

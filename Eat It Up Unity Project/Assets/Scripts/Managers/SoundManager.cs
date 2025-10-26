@@ -14,6 +14,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private AudioSource sfxAudioSource;
     [SerializeField]
+    private AudioClip finalCinematicSound;
+    [SerializeField]
     private List<AudioClip> ambientSounds;
 
     [SerializeField]
@@ -28,6 +30,7 @@ public class SoundManager : MonoBehaviour
 
     public bool MusicEnabled { get { return musicEnabled; } }
     public bool SoundFXEnabled { get { return soundFXEnabled; } }
+    public AudioSource AmbientSource { get { return ambientSource; } }
 
     void Awake()
     {
@@ -102,6 +105,18 @@ public class SoundManager : MonoBehaviour
         ambientSource.Play();
     }
 
+    public void StopAllSounds()
+    {
+        ambientSource.Stop();
+        sfxAudioSource.Stop();
+    }
+
+    public void PlayFinalCinematicSound()
+    {
+        ambientSource.clip = finalCinematicSound;
+        ambientSource.Play();
+    }
+
     public void PlaySFX(SoundFXType sfxType)
     {
         AudioClip soundToSpawn = null;
@@ -125,15 +140,46 @@ public class SoundManager : MonoBehaviour
         float volume;
 
         audioMixer.GetFloat(Music, out volume);
-        if (volume <= -70f)
+        if (volume <= -80f)
             musicEnabled = false;
         else
             musicEnabled = true;
 
+        // valueUnconverted = volume / 20;
+        // print(valueUnconverted);
+        // valueUnconverted = Mathf.Pow(10, valueUnconverted);
+        // print(valueUnconverted);
+
         audioMixer.GetFloat(SoundFX, out volume);
-        if (volume <= -70f)
+        if (volume <= -80)
             soundFXEnabled = false;
         else
             soundFXEnabled = true;
+
+        // valueUnconverted = volume / 20;
+        // print(valueUnconverted);
+        // valueUnconverted = Mathf.Pow(10, valueUnconverted);
+        // print(valueUnconverted);
+    }
+
+    public float GetSFXHUDValue()
+    {
+        float volume;
+        float valueUnconverted;
+        audioMixer.GetFloat(SoundFX, out volume);
+        valueUnconverted = volume / 20;
+        valueUnconverted = Mathf.Pow(10, valueUnconverted);
+        return valueUnconverted;
+    }
+
+    public float GetMusicHUDValue()
+    {
+        float volume;
+        float valueUnconverted;
+        audioMixer.GetFloat(Music, out volume);
+        valueUnconverted = volume / 20;
+        valueUnconverted = Mathf.Pow(10, valueUnconverted);
+        return valueUnconverted;
+
     }
 }

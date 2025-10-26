@@ -48,6 +48,8 @@ public class CameraManager : MonoBehaviour
         videoPlayer.loopPointReached += EndReached;
         videoPlayer.playOnAwake = false;
         videoPlayer.renderMode = VideoRenderMode.CameraNearPlane;
+        videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
+        videoPlayer.SetTargetAudioSource(0, SoundManager.instance.AmbientSource);
         videoPlayer.url = Application.streamingAssetsPath + "/" + "Videos/" + videoClip;
         videoPlayer.isLooping = false;
         videoPlayer.Play();

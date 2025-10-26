@@ -48,6 +48,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 5c9efff3c3077f546a7a23791148f031, type: 2}
   ambientSource: {fileID: 8559867687128717317}
   sfxAudioSource: {fileID: 4214930176265235899, guid: b2a91fa0915196f44874e72bca45f230, type: 3}
+  finalCinematicSound: {fileID: 8300000, guid: 953f96e06ab3acd4a9af240bd4a98aa8, type: 3}
   ambientSounds:
   - {fileID: 8300000, guid: b627785a21676344bacb313190373229, type: 3}
   - {fileID: 8300000, guid: 1559e7be83881ae488a686a661fd080f, type: 3}

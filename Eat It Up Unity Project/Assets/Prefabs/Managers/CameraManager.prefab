@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cCamera: {fileID: 9057201137312093491}
   videoClip: VictoryClip.mp4
-  timesLoopingVideo: 2
+  timesLoopingVideo: 0
 --- !u!1 &8494436053825377272
 GameObject:
   m_ObjectHideFlags: 0
