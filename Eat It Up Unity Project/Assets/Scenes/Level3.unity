@@ -7169,58 +7169,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1805821259}
     m_Modifications:
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: -1.8285493
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
-      value: -0.39078522
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
-      value: -1.8552465
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: -0.41205236
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
-      value: -2.2291079
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
-      value: -0.41513824
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
-      value: -1.5089674
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
-      value: -0.577858
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].x
-      value: 1.8958759
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
-      value: -0.43131626
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].x
-      value: 0.79380333
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].y
-      value: 0.42708993
-      objectReference: {fileID: 0}
     - target: {fileID: 2283292990865445180, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
       propertyPath: m_Name
       value: PlataformaTortuga
@@ -7284,38 +7232,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2283292990865445180, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1500317749}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
---- !u!1 &1500317748 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2283292990865445180, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-  m_PrefabInstance: {fileID: 1500317747}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1500317749
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500317748}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8154672837d64634ca4936b577bbffd4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1500317750 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8153384998309984742, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
@@ -7396,58 +7314,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1805821259}
     m_Modifications:
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: -1.8285493
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
-      value: -0.39078522
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
-      value: -1.8552465
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: -0.41205236
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
-      value: -2.2291079
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
-      value: -0.41513824
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
-      value: -1.5089674
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
-      value: -0.577858
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].x
-      value: 1.8958759
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
-      value: -0.43131626
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].x
-      value: 0.79380333
-      objectReference: {fileID: 0}
-    - target: {fileID: 256518724310869241, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].y
-      value: 0.42708993
-      objectReference: {fileID: 0}
     - target: {fileID: 2283292990865445180, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
       propertyPath: m_Name
       value: PlataformaTortuga (1)
@@ -7515,43 +7381,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2283292990865445180, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1544462433}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
 --- !u!4 &1544462431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8153384998309984742, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
   m_PrefabInstance: {fileID: 1544462430}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1544462432 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2283292990865445180, guid: c8bcab5793ca56847aeae5e6852efa4b, type: 3}
-  m_PrefabInstance: {fileID: 1544462430}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1544462433
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1544462432}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8154672837d64634ca4936b577bbffd4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1597383129
 PrefabInstance:
   m_ObjectHideFlags: 0
