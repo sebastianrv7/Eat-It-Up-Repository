@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         Left,
         Right
     }
-
+  
     void OnEnable()
     {
         myPlayerCollision.OnWallTouch += HandleWallTouch;
@@ -126,8 +126,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (myRigidbody != null)
         {
-            myRigidbody.linearVelocityX = movementDirection.x * speed * Time.fixedDeltaTime;
-            //myRigidbody.AddForceX(movementDirection.x * speed * Time.fixedDeltaTime, ForceMode2D.Force);
+            Vector2 newVelocity = myRigidbody.velocity;
+            newVelocity.x = movementDirection.x * speed * Time.fixedDeltaTime;
+            myRigidbody.velocity = newVelocity;
+
         }
     }
 
@@ -198,14 +200,15 @@ public class PlayerMovement : MonoBehaviour
             || Physics2D.Raycast(floorCollisionStartLeft.transform.position, transform.up * -1, 0.35f, layerMask)
             || Physics2D.Raycast(floorCollisionStartRight.transform.position, transform.up * -1, 0.35f, layerMask))
             //&& !isGrounded
-            && myRigidbody.linearVelocityY <= 0)
+            && myRigidbody.velocity.y <= 0)
         {
             return true;
         }
         isGrounded = false;
         return false;
     }
-
+    
+    
     private void JumpPressed()
     {
         if (isSliding)
@@ -231,8 +234,15 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = false;
         isJumping = true;
         //currentJumpCoroutine = StartCoroutine(JumpCoroutine());
-        myRigidbody.linearVelocityY = 0f;
+
+        // CORRECCIÓN: reasignar el vector completo en lugar de modificar .y directamente
+        Vector2 newVelocity = myRigidbody.velocity;
+        newVelocity.y = 0f;
+        myRigidbody.velocity = newVelocity;
+
+        // aplicar impulso para el salto
         myRigidbody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+
         OnStartJump?.Invoke();
         SoundManager.instance.PlaySFX(SoundManager.SoundFXType.Jump);
     }
@@ -241,12 +251,21 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = false;
         isDoubleJumping = true;
-        if(currentJumpCoroutine != null)
+
+        if (currentJumpCoroutine != null)
             StopCoroutine(currentJumpCoroutine);
+
         movementDirection.y = 0;
         //currentJumpCoroutine = StartCoroutine(DoubleJumpCoroutine());
-        myRigidbody.linearVelocityY = 0f;
+
+        // CORRECCIÓN: reasignar el vector completo en lugar de modificar .y directamente
+        Vector2 newVelocity = myRigidbody.velocity;
+        newVelocity.y = 0f;
+        myRigidbody.velocity = newVelocity;
+
+        // aplicar impulso para el doble salto
         myRigidbody.AddForce(new Vector2(0f, doubleJumpForce), ForceMode2D.Impulse);
+
         SoundManager.instance.PlaySFX(SoundManager.SoundFXType.DoubleJump);
         OnStartDoubleJump?.Invoke();
     }
@@ -256,11 +275,17 @@ public class PlayerMovement : MonoBehaviour
         StopSlide();
         ChangeDirection();
 
-        myRigidbody.linearVelocityY = 0f;
+        // CORRECCIÓN: reasignar el vector completo en lugar de modificar .y directamente
+        Vector2 newVelocity = myRigidbody.velocity;
+        newVelocity.y = 0f;
+        myRigidbody.velocity = newVelocity;
+
+        // aplicar impulso para el wall jump
         myRigidbody.AddForce(new Vector2(0f, wallJumpForce), ForceMode2D.Impulse);
 
         isJumping = true;
         isDoubleJumping = false;
+
         SoundManager.instance.PlaySFX(SoundManager.SoundFXType.Jump);
         OnStartJump?.Invoke();
     }
@@ -341,7 +366,11 @@ public class PlayerMovement : MonoBehaviour
             step += Time.deltaTime * slideForce;
             newYMovementDirection = Mathf.SmoothStep(0f, -slideSpeed, step);
             movementDirection.y = newYMovementDirection;
-            myRigidbody.linearVelocityY = movementDirection.y * speed * Time.fixedDeltaTime;
+
+            // corregido: reasignar el vector completo
+            Vector2 newVelocity = myRigidbody.velocity;
+            newVelocity.y = movementDirection.y * speed * Time.fixedDeltaTime;
+            myRigidbody.velocity = newVelocity;
 
             yield return new WaitForEndOfFrame();
         }
