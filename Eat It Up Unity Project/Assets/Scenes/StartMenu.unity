@@ -575,7 +575,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Eat It Up
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fa6fca7c6ccfbc34f9eb81b2b9c0c5bd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: -1893613361627702062, guid: fa6fca7c6ccfbc34f9eb81b2b9c0c5bd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -639,7 +639,7 @@ MonoBehaviour:
   m_margin: {x: -3.3411407, y: 0, z: 0.42886332, w: -127.738434}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &742535592
@@ -1144,8 +1144,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.43743896, y: 0}
+  m_SizeDelta: {x: -0.87488, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1552129666
 MonoBehaviour:
