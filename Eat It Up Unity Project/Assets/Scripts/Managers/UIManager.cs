@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class UIManager : MonoBehaviour
 {
@@ -38,7 +39,13 @@ public class UIManager : MonoBehaviour
     private TextMeshProUGUI gameWonTimer;
     [SerializeField]
     private TextMeshProUGUI rareMultiplierText;
-    
+
+    [SerializeField] 
+    private VideoPlayer victoryVideoPlayer;
+
+    [SerializeField] 
+    private GameObject victoryVideoUI; // El RawImage que mostrará el video
+
     [SerializeField]
     private TextMeshProUGUI rareCollectableLevelWonText;
     [SerializeField]
@@ -123,14 +130,14 @@ public class UIManager : MonoBehaviour
 
     public void PlayerWonLevel()
     {
-        UpdateInitialCollectables(rareCollectables, goldCollectables);
-        UpdateInitialScore(scoreManager.CurrentScore);
+        
         SetLevelWonHUD();
         timerActive = false;
         //SetFinalTimer();
         levelWonHud.SetActive(true);
-        ShowStars();
+        
         gameHud.SetActive(false);
+        StartCoroutine(PlayVictoryCinematic());
     }
 
     public void PlayerFinishedGame()
@@ -271,49 +278,12 @@ public class UIManager : MonoBehaviour
 
     public void SetLevelWonHUD()
     {
-        // string rareText = rareCollectables.ToString("D2");
-        // string maxRareText = scoreManager.MaxRareCollectablePerLevel.ToString("D2");
-        // string goldText = goldCollectables.ToString("D2");
-        // string maxGoldText = scoreManager.MaxGoldCollectablePerLevel.ToString("D2");
-        // string scoreText = scoreManager.CurrentScore.ToString("D2");
-
-        // rareCollectableLevelWonText.SetText("");
-        // for (int i = 0; i < rareText.Length; i++)
-        // {
-        //     rareCollectableLevelWonText.text += "<sprite index=" + rareText[i].ToString() + ">";
-        // }
-        // rareCollectableLevelWonText.text += "/";
-        // for (int i = 0; i < maxRareText.Length; i++)
-        // {
-        //     rareCollectableLevelWonText.text += "<sprite index=" + maxRareText[i].ToString() + ">";
-        // }
-
-        // goldCollectableLevelWonText.SetText("");
-        // for (int i = 0; i < goldText.Length; i++)
-        // {
-        //     goldCollectableLevelWonText.text += "<sprite index=" + goldText[i].ToString() + ">";
-        // }
-        // goldCollectableLevelWonText.text += "/";
-        // for (int i = 0; i < maxGoldText.Length; i++)
-        // {
-        //     goldCollectableLevelWonText.text += "<sprite index=" + maxGoldText[i].ToString() + ">";
-        // }
-
-        // levelWonScore.SetText("");
-        // for (int i = 0; i < scoreText.Length; i++)
-        // {
-        //     levelWonScore.text += "<sprite index=" + scoreText[i].ToString() + ">";
-        // }
-
-        rareCollectableLevelWonText.SetText(rareCollectables.ToString("D2") + ";" + scoreManager.MaxRareCollectablePerLevel.ToString("D2"));
-        goldCollectableLevelWonText.SetText(goldCollectables.ToString("D2") + ";" + scoreManager.MaxGoldCollectablePerLevel.ToString("D2"));
+        
+        
         levelWonScore.SetText(scoreManager.CurrentScore.ToString("D2"));
     }
 
-    public void ShowStars()
-    {
-        levelWonStarsManager.ShowStars(scoreManager.StarsEarned);
-    }
+    
 
     private IEnumerator UnpausingGame()
     {
@@ -342,4 +312,28 @@ public class UIManager : MonoBehaviour
 
     }
 
+
+    private IEnumerator PlayVictoryCinematic()
+    {
+        // Activar el RawImage antes que el HUD
+        victoryVideoUI.SetActive(true);
+
+        // Reproducir video
+        victoryVideoPlayer.gameObject.SetActive(true);
+        victoryVideoPlayer.Play();
+
+        // Ocultar HUD de victoria mientras se reproduce el video
+        levelWonHud.SetActive(false);
+
+        // Esperar a que termine el video
+        while (victoryVideoPlayer.isPlaying)
+            yield return null;
+
+        // Ocultar video
+        victoryVideoPlayer.gameObject.SetActive(false);
+        victoryVideoUI.SetActive(false);
+
+        // Mostrar HUD de victoria al terminar
+        levelWonHud.SetActive(true);
+    }
 }

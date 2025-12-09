@@ -43,6 +43,10 @@ public class GameManager : MonoBehaviour
     public delegate void CollectableBehaviour(Collectable collectableCollected);
     public event CollectableBehaviour OnCollectableCollected;
 
+   
+
+
+
     void Awake()
     {
         if (instance == null)
@@ -91,7 +95,7 @@ public class GameManager : MonoBehaviour
         currentPlayer.GetComponent<PlayerController>().OnPause -= PauseGame;
         SoundManager.instance.PlaySFX(SoundManager.SoundFXType.Death);
         playerIsDead = true;
-        StartCoroutine(RestartingGame());
+        
     }
 
     public void StartGame()
@@ -192,10 +196,9 @@ public class GameManager : MonoBehaviour
         uiManager.PlayerFinishedGame();
     }
 
-    private IEnumerator RestartingGame()
-    {
-        yield return new WaitForSeconds(.75f);
-        RestartGame();
-    }
+    
+
+
+    
 
 }
