@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -45,6 +45,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private CapsuleCollider2D bodyCollision;
 
+    private float normalSpeed;
+    private bool isSlowed = false;
+
+    private System.Action deathStunCallback;
+    private System.Action hitStunCallback;
+
     private MovementDirection currentDirection = MovementDirection.Right;
     private LayerMask layerMask;
     private Coroutine currentJumpCoroutine;
@@ -54,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isDoubleJumping = false;
     private bool isGrounded = true;
     private bool isSliding = false;
+    
 
     public MovementDirection CurrentDirection { get { return currentDirection; } }
 
@@ -77,7 +84,13 @@ public class PlayerMovement : MonoBehaviour
         myPlayerCollision.OnWallStopTouch += StopWallTouch;
         //myPlayerCollision.OnFloorTouch += TouchingFloor;
         myPlayerController.OnJump += JumpPressed;
-        myPlayerHealth.OnDeath += StopAllMovement;
+
+
+        deathStunCallback = () => StunForSeconds(1f);
+        hitStunCallback = () => StunForSeconds(1f);
+
+        myPlayerHealth.OnDeath += deathStunCallback;
+        myPlayerHealth.OnHit += hitStunCallback;
     }
 
 
@@ -87,7 +100,8 @@ public class PlayerMovement : MonoBehaviour
         myPlayerCollision.OnWallStopTouch -= StopWallTouch;
         //myPlayerCollision.OnFloorTouch -= TouchingFloor;
         myPlayerController.OnJump -= JumpPressed;
-        myPlayerHealth.OnDeath -= StopAllMovement;
+        myPlayerHealth.OnDeath -= deathStunCallback;
+        myPlayerHealth.OnHit -= hitStunCallback;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -99,22 +113,25 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = true;
         isSliding = false;
         movementDirection.y = 0f;
+        normalSpeed = speed;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!myPlayerHealth.IsAlive)
-            return;
+        
         if (GameManager.LevelFinished)
             return;
 
         if (CheckIfGrounded())
                 TouchingFloor();
-//        if (isSliding || !isGrounded)
+        //        if (isSliding || !isGrounded)
+        if (isStunned) return;
 
-            Movement();
+        Movement();
         //CheckIfGrounded();
+
+        
     }
 
     private void Movement()
@@ -138,6 +155,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isGrounded)
         {
+            //  Si venías de un salto desde muro, fuerza reset del slide
+            if (isSliding)
+            {
+                StopWallTouch();    // <-- ESTA ES LA LÍNEA IMPORTANTE
+            }
+
             if (!isSliding)
             {
                 isSliding = true;
@@ -235,7 +258,7 @@ public class PlayerMovement : MonoBehaviour
         isJumping = true;
         //currentJumpCoroutine = StartCoroutine(JumpCoroutine());
 
-        // CORRECCI�N: reasignar el vector completo en lugar de modificar .y directamente
+        // CORRECCIÓN: reasignar el vector completo en lugar de modificar .y directamente
         Vector2 newVelocity = myRigidbody.velocity;
         newVelocity.y = 0f;
         myRigidbody.velocity = newVelocity;
@@ -258,7 +281,7 @@ public class PlayerMovement : MonoBehaviour
         movementDirection.y = 0;
         //currentJumpCoroutine = StartCoroutine(DoubleJumpCoroutine());
 
-        // CORRECCI�N: reasignar el vector completo en lugar de modificar .y directamente
+        // CORRECCIÓN: reasignar el vector completo en lugar de modificar .y directamente
         Vector2 newVelocity = myRigidbody.velocity;
         newVelocity.y = 0f;
         myRigidbody.velocity = newVelocity;
@@ -275,7 +298,7 @@ public class PlayerMovement : MonoBehaviour
         StopSlide();
         ChangeDirection();
 
-        // CORRECCI�N: reasignar el vector completo en lugar de modificar .y directamente
+        // CORRECCIÓN: reasignar el vector completo en lugar de modificar .y directamente
         Vector2 newVelocity = myRigidbody.velocity;
         newVelocity.y = 0f;
         myRigidbody.velocity = newVelocity;
@@ -400,5 +423,94 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         yield return null;
+    }
+
+    private bool isStunned = false;
+
+    public void SetStunnedState(bool value)
+    {
+        if (value)
+        {
+            if (!isSlowed)
+            {
+                StartCoroutine(SlowAndRecover());
+            }
+        }
+    }
+
+    private IEnumerator StunSequence()
+    {
+        isStunned = true;
+
+        // 1) Frenar movimiento horizontal pero NO el vertical (para evitar flotar)
+        movementDirection = Vector3.zero;
+        if (myRigidbody != null)
+            myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);
+
+        // 2) Detener coroutines activas de movimiento
+        if (currentJumpCoroutine != null)
+        {
+            StopCoroutine(currentJumpCoroutine);
+            currentJumpCoroutine = null;
+        }
+
+        if (wallSlideCoroutine != null)
+        {
+            StopCoroutine(wallSlideCoroutine);
+            wallSlideCoroutine = null;
+        }
+
+        // STUN ACTIVO POR 1 SEGUNDO
+        yield return new WaitForSeconds(1f);
+
+        // 3) Cambiar dirección después del stun
+        
+
+        // 4) Limpiar flags para evitar quedarse en slide/jump
+        isSliding = false;
+        isJumping = false;
+        isDoubleJumping = false;
+
+        isStunned = false;
+    }
+
+    private Coroutine stunCoroutine;
+
+    public void StunForSeconds(float duration)
+    {
+        if (stunCoroutine != null)
+            StopCoroutine(stunCoroutine);
+
+        stunCoroutine = StartCoroutine(StunCoroutine(duration));
+    }
+
+    private IEnumerator StunCoroutine(float duration)
+    {
+        
+        SetStunnedState(true);        // Se queda quieto
+        yield return new WaitForSeconds(duration);
+        SetStunnedState(false);
+        
+        stunCoroutine = null;
+        
+    }
+
+    private IEnumerator SlowAndRecover()
+    {
+        isSlowed = true;
+
+        // 1) Reducir velocidad
+        speed = normalSpeed * 0.5f;
+
+        // 2) Cambiar dirección inmediatamente
+        ChangeDirection();
+
+        // Esperar 1 segundo mientras sigue moviéndose lento
+        yield return new WaitForSeconds(1f);
+
+        // 3) Restaurar velocidad
+        speed = normalSpeed;
+
+        isSlowed = false;
     }
 }

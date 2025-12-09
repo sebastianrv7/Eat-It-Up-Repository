@@ -51,7 +51,7 @@ public class PlayerVisuals : MonoBehaviour
         myPlayerMovement.OnFinishJump += Walking;
         myPlayerMovement.OnStartSlide += Sliding;
         myPlayerMovement.OnStopSlide += StopSliding;
-        myPlayerHealth.OnDeath += Death;
+        
     }
 
     void OnDisable()
@@ -63,7 +63,7 @@ public class PlayerVisuals : MonoBehaviour
         myPlayerMovement.OnFinishJump -= Walking;
         myPlayerMovement.OnStartSlide -= Sliding;
         myPlayerMovement.OnStopSlide -= StopSliding;
-        myPlayerHealth.OnDeath -= Death;
+        
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

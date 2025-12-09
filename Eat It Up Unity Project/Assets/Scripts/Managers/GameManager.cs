@@ -115,11 +115,13 @@ public class GameManager : MonoBehaviour
     {
         currentPlayer = Instantiate(playerPrefab, playerStartPosition.transform);
         cameraManager.SetTrackingTarget(currentPlayer.transform);
-        currentPlayer.GetComponent<PlayerHealth>().OnDeath += GameOver;
+
+        
         currentPlayer.GetComponent<PlayerCollision>().OnFinishTouch += LevelWon;
         currentPlayer.GetComponent<PlayerCollision>().OnCollectableTouch += CollectableCollected;
         currentPlayer.GetComponent<PlayerCollision>().OnCameraStopTouch += StopCameraFollow;
         currentPlayer.GetComponent<PlayerController>().OnPause += PauseGame;
+
         SoundManager.instance.PlaySFX(SoundManager.SoundFXType.Spawn);
     }
 

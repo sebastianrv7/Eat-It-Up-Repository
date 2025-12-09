@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class Collectable : MonoBehaviour
 {
-    [SerializeField]
-    private ParticleSystem collectedVFX;
+    [SerializeField] 
+    private FloatingText floatingTextPrefab;
     [SerializeField]
     private SpriteRenderer spriteToChange;
     [SerializeField]
@@ -28,10 +28,10 @@ public class Collectable : MonoBehaviour
     private Vector3 goldSpriteScale;
     [SerializeField]
     private CollectableType myType;
-    [SerializeField]
-    private List<Image> myScoreImages;
-    [SerializeField]
-    private List<Sprite> myNumbers;
+    [SerializeField] 
+    private TMPro.TMP_Text myScoreText;
+
+    
     [SerializeField]
     private Animator myAnimator;
 
@@ -94,23 +94,22 @@ public class Collectable : MonoBehaviour
             default:
                 break;
         }
-        
-        string scoreText = MyScore.ToString("D2");
-        
-        for (int i = 0; i < scoreText.Length; i++)
-        {
-            if (myScoreImages[i] != null)
-                myScoreImages[i].sprite = myNumbers[int.Parse(scoreText[i].ToString())];
-        }
+
+        myScoreText.SetText(MyScore.ToString("D2"));
     }
 
     public void ObjectCollected()
     {
-        collectedVFX.gameObject.SetActive(true);
-        collectedVFX.gameObject.transform.parent = null;
+        // Spawn del texto
+        FloatingText ft = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity);
+        int multiplier = ScoreMultiplierManager.Instance.GetCurrentMultiplier();
+        int finalScore = MyScore * multiplier;
+        ft.SetText("+" + finalScore);
+
+        // Sonidos y score como ya tienes
         SoundManager.instance.PlaySFX(SoundManager.SoundFXType.Collectable);
+        Score.Instance.AddScore(finalScore);
+
         gameObject.SetActive(false);
-        // Instantiate(collectedVFX, gameObject.transform.position, Quaternion.identity);
-        //Destroy(gameObject);
     }
 }

@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]
@@ -7,18 +7,18 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private int maxHealth;
     private int currentHealth;
-    private bool isAlive;
+    
 
-    public bool IsAlive { get{ return isAlive; }}
+    
 
-    public delegate void HealthActions();
-    public event HealthActions OnHit, OnDeath;
+
+    public event System.Action OnHit, OnDeath;
 
 
     void Awake()
     {
         currentHealth = maxHealth;
-        isAlive = true;
+        
         if (myPlayerCollision == null)
             myPlayerCollision = GetComponent<PlayerCollision>();
     }
@@ -42,23 +42,16 @@ public class PlayerHealth : MonoBehaviour
     private void CheckIfAlive()
     {
         if (currentHealth > 0)
-        {        
+        {
             OnHit?.Invoke();
             return;
         }
-        isAlive = false;
         OnDeath?.Invoke();
+        currentHealth = maxHealth; // Reinicia la vida
+
+        
 
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

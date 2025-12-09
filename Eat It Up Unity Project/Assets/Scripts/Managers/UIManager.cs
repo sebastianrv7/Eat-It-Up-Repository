@@ -37,9 +37,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI gameWonTimer;
     [SerializeField]
-    private TextMeshProUGUI rareCollectableGameHUDText;
-    [SerializeField]
-    private TextMeshProUGUI goldCollectableGameHUDText;
+    private TextMeshProUGUI rareMultiplierText;
+    
     [SerializeField]
     private TextMeshProUGUI rareCollectableLevelWonText;
     [SerializeField]
@@ -108,10 +107,12 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+
         timerActive = true;
         SetInitialScore();
         SetInitialCollectableText();
         //StartCoroutine(CurrentTimer());
+        
     }
 
     void Update()
@@ -228,23 +229,9 @@ public class UIManager : MonoBehaviour
     public void UpdateCollectableText()
     {
 
-        // string rareText = rareCollectables.ToString("D2");
-        // string goldText = goldCollectables.ToString("D2");
 
-        // rareCollectableGameHUDText.SetText("");
-        // for (int i = 0; i < rareText.Length; i++)
-        // {
-        //     rareCollectableGameHUDText.text += "<sprite index=" + rareText[i].ToString() + ">";
-        // }
-
-        // goldCollectableGameHUDText.SetText("");
-        // for (int i = 0; i < goldText.Length; i++)
-        // {
-        //     goldCollectableGameHUDText.text += "<sprite index=" + goldText[i].ToString() + ">";
-        // }
-
-        rareCollectableGameHUDText.SetText(rareCollectables.ToString("D2"));
-        goldCollectableGameHUDText.SetText(goldCollectables.ToString("D2"));
+        int multiplier = ScoreMultiplierManager.Instance.GetCurrentMultiplier();
+        rareMultiplierText.SetText($"X{multiplier}");
 
     }
 
@@ -278,15 +265,8 @@ public class UIManager : MonoBehaviour
 
     public void UpdateScoreText()
     {
-        string scoreText = scoreManager.CurrentScore.ToString("D2");
-        gameHUDScore.SetText(scoreText);
-
-        // gameHUDScore.SetText("");
-
-        // for (int i = 0; i < scoreText.Length; i++)
-        // {
-        //     gameHUDScore.text += "<sprite index=" + scoreText[i].ToString() + ">";
-        // }
+        int totalScore = Score.Instance.GetTotalScore();
+        gameHUDScore.SetText(totalScore.ToString("D2"));
     }
 
     public void SetLevelWonHUD()

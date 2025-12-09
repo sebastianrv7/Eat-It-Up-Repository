@@ -50,4 +50,6 @@ public class PlayerCollision : MonoBehaviour
             OnWallStopTouch?.Invoke();
         }
     }
+
+    
 }
