@@ -11,6 +11,10 @@ public class QuestionManager : MonoBehaviour
     public event Action OnQuestionStart;
     public event Action OnQuestionEnd;
 
+    // Events for game start and end
+    public event Action OnGameStart;
+    public event Action OnGameEnd;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -69,5 +73,17 @@ public class QuestionManager : MonoBehaviour
     public void ResumeGame()
     {
         EndQuestion();
+    }
+
+    public void GameStart()
+    {
+        Debug.Log("GAME START");
+        OnGameStart?.Invoke();
+    }
+
+    public  void EndGame()
+    {
+        Debug.Log("GAME END");
+        OnGameEnd?.Invoke();
     }
 }

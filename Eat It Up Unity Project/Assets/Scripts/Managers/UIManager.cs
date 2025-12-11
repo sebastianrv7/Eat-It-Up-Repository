@@ -21,16 +21,14 @@ public class UIManager : MonoBehaviour
     private GameObject gameHud;
     [SerializeField]
     private GameObject pauseGameHud;
-    [SerializeField]
-    private GameObject unpauseGameHud;
+    
     [SerializeField]
     private GameObject levelWonHud;
     [SerializeField]
     private GameObject gameWonHud;
     [SerializeField]
     private TextMeshProUGUI gameHUDScore;
-    [SerializeField]
-    private GameObject levelGroupParent;
+    
     [SerializeField]
     private UILevelGroupManager levelGroupInfoPrefab;
     [SerializeField]
@@ -40,11 +38,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI rareMultiplierText;
 
-    [SerializeField] 
-    private VideoPlayer victoryVideoPlayer;
-
-    [SerializeField] 
-    private GameObject victoryVideoUI; // El RawImage que mostrará el video
+    
 
     [SerializeField]
     private TextMeshProUGUI rareCollectableLevelWonText;
@@ -91,7 +85,7 @@ public class UIManager : MonoBehaviour
 
         levelWonHud.SetActive(false);
         pauseGameHud.SetActive(false);
-        unpauseGameHud.SetActive(false);
+        
         gameHud.SetActive(true);
         progressBarSet = false;
     }
@@ -131,31 +125,27 @@ public class UIManager : MonoBehaviour
     public void PlayerWonLevel()
     {
         
-        SetLevelWonHUD();
+        
         timerActive = false;
         //SetFinalTimer();
         levelWonHud.SetActive(true);
         
         gameHud.SetActive(false);
-        StartCoroutine(PlayVictoryCinematic());
+
+        
     }
 
     public void PlayerFinishedGame()
     {
         gameHud.SetActive(false);
+        int finalScore = Score.Instance.GetTotalScore();
+        SetLevelWonHUD(finalScore);
         gameWonHud.SetActive(true);
-        for (int i = 0; i < scoreManager.Levels; i++)
-        {
-            levelGroup.Add(Instantiate(levelGroupInfoPrefab, levelGroupParent.transform));
-            levelGroup[i].SetScore(
-                i + 1,
-                scoreManager.GetCollectablesCollectedPerLevel(Collectable.CollectableType.Rare, i),
-                scoreManager.GetMaxCollectablesPerLevel(Collectable.CollectableType.Rare, i),
-                scoreManager.GetCollectablesCollectedPerLevel(Collectable.CollectableType.Gold, i),
-                scoreManager.GetMaxCollectablesPerLevel(Collectable.CollectableType.Gold, i),
-                scoreManager.GetScorePerLevel(i),
-                scoreManager.GetStarsPerLevel(i));
-        }
+
+        // Avisar que el juego terminó
+        if (QuestionManager.instance != null)
+            QuestionManager.instance.EndGame();
+
     }
 
     public void SetFinalTimer()
@@ -170,10 +160,8 @@ public class UIManager : MonoBehaviour
 
     public void PauseGame()
     {
-        toggleMusicIcon.gameObject.SetActive(SoundManager.instance.MusicEnabled);
-        toggleSFXIcon.gameObject.SetActive(SoundManager.instance.SoundFXEnabled);
-        musicSlider.value = SoundManager.instance.GetMusicHUDValue();
-        sfxSlider.value = SoundManager.instance.GetSFXHUDValue();
+           
+               
         pauseGameHud.SetActive(true);
         pauseButton.interactable = false;
     }
@@ -276,11 +264,11 @@ public class UIManager : MonoBehaviour
         gameHUDScore.SetText(totalScore.ToString("D2"));
     }
 
-    public void SetLevelWonHUD()
+    public void SetLevelWonHUD(int score)
     {
         
         
-        levelWonScore.SetText(scoreManager.CurrentScore.ToString("D2"));
+        levelWonScore.SetText(score.ToString("D2"));
     }
 
     
@@ -289,9 +277,8 @@ public class UIManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(0.1f);
         pauseGameHud.SetActive(false);
-        unpauseGameHud.SetActive(true);
-        yield return new WaitForSecondsRealtime(3f);
-        unpauseGameHud.SetActive(false);
+              
+        
         OnUnpauseButton?.Invoke();
         pauseButton.interactable = true;
     }
@@ -313,27 +300,5 @@ public class UIManager : MonoBehaviour
     }
 
 
-    private IEnumerator PlayVictoryCinematic()
-    {
-        // Activar el RawImage antes que el HUD
-        victoryVideoUI.SetActive(true);
-
-        // Reproducir video
-        victoryVideoPlayer.gameObject.SetActive(true);
-        victoryVideoPlayer.Play();
-
-        // Ocultar HUD de victoria mientras se reproduce el video
-        levelWonHud.SetActive(false);
-
-        // Esperar a que termine el video
-        while (victoryVideoPlayer.isPlaying)
-            yield return null;
-
-        // Ocultar video
-        victoryVideoPlayer.gameObject.SetActive(false);
-        victoryVideoUI.SetActive(false);
-
-        // Mostrar HUD de victoria al terminar
-        levelWonHud.SetActive(true);
-    }
+    
 }
