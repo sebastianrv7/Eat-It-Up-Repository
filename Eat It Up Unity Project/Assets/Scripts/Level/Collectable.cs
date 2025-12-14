@@ -31,7 +31,12 @@ public class Collectable : MonoBehaviour
     [SerializeField] 
     private TMPro.TMP_Text myScoreText;
 
-    
+    [Header("Spawn Chances")]
+    [SerializeField] private float normalChance = 40f;
+    [SerializeField] private float rareChance = 40f;
+    [SerializeField] private float goldChance = 20f;
+
+
     [SerializeField]
     private Animator myAnimator;
 
@@ -66,10 +71,12 @@ public class Collectable : MonoBehaviour
 
     void Awake()
     {
+        SetRandomCollectableType(); 
         SetCollectable();
+        
     }
 
-    private void SetCollectable()
+    public void SetCollectable()
     {
         switch (myType)
         {
@@ -96,8 +103,25 @@ public class Collectable : MonoBehaviour
         }
 
         myScoreText.SetText(MyScore.ToString("D2"));
-    }
+    } 
 
+    private void SetRandomCollectableType()
+    {
+        float roll = UnityEngine.Random.Range(0f, 100f);
+
+        if (roll < goldChance)
+        {
+            myType = CollectableType.Gold;
+        }
+        else if (roll < goldChance + rareChance)
+        {
+            myType = CollectableType.Rare;
+        }
+        else
+        {
+            myType = CollectableType.Normal;
+        }
+    }
     public void ObjectCollected()
     {
         // Spawn del texto
@@ -111,5 +135,11 @@ public class Collectable : MonoBehaviour
         Score.Instance.AddScore(finalScore);
 
         gameObject.SetActive(false);
+    }
+
+    public void SetType(CollectableType newType)
+    {
+        myType = newType;
+        SetCollectable();
     }
 }

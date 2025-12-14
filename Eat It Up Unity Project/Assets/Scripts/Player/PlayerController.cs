@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     public delegate void InputActions();
     public event InputActions OnJump, OnPause;
 
+    [SerializeField] private ParticleSystem glowParticles;
+    public ParticleSystem GlowParticles => glowParticles;
+
     void OnEnable()
     {
         jump.performed += JumpPressed;
