@@ -63,7 +63,10 @@ public class PlayerMovement : MonoBehaviour
     private bool isDoubleJumping = false;
     private bool isGrounded = true;
     private bool isSliding = false;
-    
+
+    // 1) Agrega esta variable privada (con las demás como normalSpeed, isSlowed, etc.)
+    private Coroutine slowAndRecoverCoroutine;
+
 
     public MovementDirection CurrentDirection { get { return currentDirection; } }
 
@@ -441,11 +444,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (value)
         {
-            if (!isSlowed)
+
+            ResetPhysicsOnDamage();
+            // ← NUEVO: Si ya hay uno corriendo, lo paramos y empezamos uno nuevo
+            if (slowAndRecoverCoroutine != null)
             {
-                StartCoroutine(SlowAndRecover());
+                StopCoroutine(slowAndRecoverCoroutine);
             }
+
+            // Siempre empezamos uno nuevo → resta puntos, flash, slow, dirección CADA VEZ
+            slowAndRecoverCoroutine = StartCoroutine(SlowAndRecover());
         }
+        // Nota: No necesitas manejar value=false aquí, ya que el coroutine se encarga solo
     }
 
     private IEnumerator StunSequence()
@@ -507,59 +517,77 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator SlowAndRecover()
     {
-        isSlowed = true;
-
-        // Guardar color original (por si acaso)
+        // ← NUEVO: Siempre restauramos color original al INICIO (evita quedarse rojo)
         if (spriteRenderer != null)
-            originalColor = spriteRenderer.color;
+        {
+            spriteRenderer.color = originalColor;
+        }
 
-        // 1) Reducir velocidad
+        isSlowed = true;
         speed = normalSpeed * 0.5f;
-
-        // 2) Cambiar dirección inmediatamente
         ChangeDirection();
 
-        // === NUEVO: Restar 100 puntos por recibir daño ===
+        // Restar puntos y UI
         if (Score.Instance != null)
-        {
             Score.Instance.AddScore(-100);
-        }
-
-        // === Actualizar UI del puntaje (similar a IncorrectAnswer) ===
         if (UIManager.instance != null)
-        {
-            UIManager.instance.UpdateScoreText();  // <-- Cambio correcto aquí
-                                                   
-        }
+            UIManager.instance.UpdateScoreText();
 
-        // === EFECTO VISUAL: Parpadeo rojo ===
+        // === FLASH: siempre empieza limpio ===
         if (spriteRenderer != null)
         {
-            float flashDuration = 1f;     // Duración total del efecto
-            float flashSpeed = 0.25f;        // Cuánto tiempo dura cada "parpadeo"
-            Color damageColor = new Color(1f, 0.6f, 0.65f, 1f);  // Color rojo intenso
-
+            float flashDuration = 1f;
+            float flashSpeed = 0.25f;
+            Color damageColor = new Color(1f, 0.6f, 0.65f, 1f);
             float elapsed = 0f;
 
             while (elapsed < flashDuration)
             {
-                // Alternar entre rojo y color original
-                spriteRenderer.color = (Mathf.FloorToInt(elapsed / flashSpeed) % 2 == 0) ? damageColor : originalColor;
+                spriteRenderer.color = (Mathf.FloorToInt(elapsed / flashSpeed) % 2 == 0)
+                    ? damageColor
+                    : originalColor;
 
                 elapsed += Time.deltaTime;
-                yield return null;  // Espera al siguiente frame
+                yield return null;
             }
 
-            // Asegurarse de volver al color original al final
+            // ← Al final del flash, aseguramos color normal
             spriteRenderer.color = originalColor;
         }
 
-        // Esperar 1 segundo mientras sigue moviéndose lento
+        // Esperar 1 segundo con slow activo
         yield return new WaitForSeconds(1f);
 
-        // 3) Restaurar velocidad
+        // Restaurar velocidad
         speed = normalSpeed;
-
         isSlowed = false;
+
+        // Limpiar referencia
+        slowAndRecoverCoroutine = null;
+
+
+    }
+
+    // ← NUEVO MÉTODO: Reset rápido de física (toggle collider + wake)
+    private void ResetPhysicsOnDamage()
+    {
+        if (bodyCollision != null)
+        {
+            // Toggle trigger: fuerza reset de colisiones
+            bodyCollision.isTrigger = true;
+            bodyCollision.isTrigger = false;
+        }
+
+        if (myRigidbody != null)
+        {
+            // Despierta física
+            myRigidbody.WakeUp();
+
+            // Fuerza pequeña caída si velocity Y >= 0 (evita flotar)
+            if (myRigidbody.velocity.y >= -0.5f)
+            {
+                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, -2f);
+            }
+        }
     }
 }

@@ -15,6 +15,12 @@ public class QuestionManager : MonoBehaviour
     public event Action OnGameStart;
     public event Action OnGameEnd;
 
+    //  NUEVO: Flag para saber si hay una pregunta activa
+    private bool isQuestionActive = false;
+
+    //  NUEVO: Propiedad pública de solo lectura para que otros scripts consulten
+    public bool IsQuestionActive => isQuestionActive;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -24,7 +30,12 @@ public class QuestionManager : MonoBehaviour
     [ContextMenu("Start Question (Inspector)")]
     public void StartQuestion()
     {
+
+        if (isQuestionActive)
+            return; // Evita empezar otra mientras hay una activa
+
         Debug.Log("Question started");
+        isQuestionActive = true;
         Time.timeScale = 0f; // Pause the game
         OnQuestionStart?.Invoke();
     }
@@ -32,7 +43,12 @@ public class QuestionManager : MonoBehaviour
     [ContextMenu("End Question (Inspector)")]
     public void EndQuestion()
     {
+
+        if (!isQuestionActive)
+            return;
+
         Debug.Log("Question ended");
+        isQuestionActive = false;
         Time.timeScale = 1f; // Resume the game
         OnQuestionEnd?.Invoke();
     }
@@ -85,5 +101,12 @@ public class QuestionManager : MonoBehaviour
     {
         Debug.Log("GAME END");
         OnGameEnd?.Invoke();
+    }
+
+    //  NUEVO: Método seguro para forzar pausa externa (útil si necesitas)
+    public void ForcePauseIfQuestionActive()
+    {
+        if (isQuestionActive)
+            Time.timeScale = 0f;
     }
 }

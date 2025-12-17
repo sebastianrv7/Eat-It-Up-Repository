@@ -275,10 +275,22 @@ public class UIManager : MonoBehaviour
 
     private IEnumerator UnpausingGame()
     {
+
         yield return new WaitForSecondsRealtime(0.1f);
         pauseGameHud.SetActive(false);
-              
-        
+
+
+        //  AQUÍ LA LÓGICA CLAVE
+        if (QuestionManager.instance != null && QuestionManager.instance.IsQuestionActive)
+        {
+            // Hay una pregunta activa  NO reanudamos el juego
+            // Time.timeScale sigue en 0 (gracias a StartQuestion())
+            // NO invocamos OnUnpauseButton para no reanudar lógica del juego
+            Debug.Log("Pausa desactivada, pero juego sigue congelado por pregunta activa");
+            yield break;  // Salimos aquí, no hacemos nada más
+        }
+
+        Time.timeScale = 1f;
         OnUnpauseButton?.Invoke();
         pauseButton.interactable = true;
     }
