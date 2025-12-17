@@ -45,6 +45,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private CapsuleCollider2D bodyCollision;
 
+    [SerializeField] private SpriteRenderer spriteRenderer;  // Asigna esto en el Inspector
+    private Color originalColor;
+
     private float normalSpeed;
     private bool isSlowed = false;
 
@@ -77,7 +80,14 @@ public class PlayerMovement : MonoBehaviour
         Left,
         Right
     }
-  
+
+    void Awake()
+    {
+        // ... tu código existente
+        if (spriteRenderer != null)
+            originalColor = spriteRenderer.color;
+    }
+
     void OnEnable()
     {
         myPlayerCollision.OnWallTouch += HandleWallTouch;
@@ -499,11 +509,50 @@ public class PlayerMovement : MonoBehaviour
     {
         isSlowed = true;
 
+        // Guardar color original (por si acaso)
+        if (spriteRenderer != null)
+            originalColor = spriteRenderer.color;
+
         // 1) Reducir velocidad
         speed = normalSpeed * 0.5f;
 
         // 2) Cambiar dirección inmediatamente
         ChangeDirection();
+
+        // === NUEVO: Restar 100 puntos por recibir daño ===
+        if (Score.Instance != null)
+        {
+            Score.Instance.AddScore(-100);
+        }
+
+        // === Actualizar UI del puntaje (similar a IncorrectAnswer) ===
+        if (UIManager.instance != null)
+        {
+            UIManager.instance.UpdateScoreText();  // <-- Cambio correcto aquí
+                                                   
+        }
+
+        // === EFECTO VISUAL: Parpadeo rojo ===
+        if (spriteRenderer != null)
+        {
+            float flashDuration = 1f;     // Duración total del efecto
+            float flashSpeed = 0.25f;        // Cuánto tiempo dura cada "parpadeo"
+            Color damageColor = new Color(1f, 0.6f, 0.65f, 1f);  // Color rojo intenso
+
+            float elapsed = 0f;
+
+            while (elapsed < flashDuration)
+            {
+                // Alternar entre rojo y color original
+                spriteRenderer.color = (Mathf.FloorToInt(elapsed / flashSpeed) % 2 == 0) ? damageColor : originalColor;
+
+                elapsed += Time.deltaTime;
+                yield return null;  // Espera al siguiente frame
+            }
+
+            // Asegurarse de volver al color original al final
+            spriteRenderer.color = originalColor;
+        }
 
         // Esperar 1 segundo mientras sigue moviéndose lento
         yield return new WaitForSeconds(1f);

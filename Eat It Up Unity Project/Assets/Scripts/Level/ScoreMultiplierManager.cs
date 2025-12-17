@@ -27,7 +27,7 @@ public class ScoreMultiplierManager : MonoBehaviour
     void Update()
     {
         // Presiona U para aumentar el multiplicador
-        if (Input.GetKeyDown(KeyCode.U))
+        /*if (Input.GetKeyDown(KeyCode.U))
         {
             ActivateNextMultiplier();
 
@@ -44,7 +44,7 @@ public class ScoreMultiplierManager : MonoBehaviour
             // Actualizar la UI
             if (UIManager.instance != null)
                 UIManager.instance.UpdateCollectableText();
-        }
+        }*/
     }
 
     /// <summary>

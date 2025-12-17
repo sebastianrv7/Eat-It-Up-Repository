@@ -28,7 +28,16 @@ public class Collectable : MonoBehaviour
     private Vector3 goldSpriteScale;
     [SerializeField]
     private CollectableType myType;
-    [SerializeField] 
+    [SerializeField] private Sprite epicSprite;
+    [SerializeField] private int epicScore;
+    [SerializeField] private Vector3 epicSpriteScale;
+
+    [SerializeField] private Sprite legendarySprite;
+    [SerializeField] private int legendaryScore;
+    [SerializeField] private Vector3 legendarySpriteScale;
+
+
+
     private TMPro.TMP_Text myScoreText;
 
     [Header("Spawn Chances")]
@@ -52,6 +61,10 @@ public class Collectable : MonoBehaviour
                     return rareScore;
                 case CollectableType.Gold:
                     return goldScore;
+                case CollectableType.Epic:
+                    return epicScore;
+                case CollectableType.Legendary:
+                    return legendaryScore;
                 default:
                     return normalScore;
             }
@@ -66,14 +79,18 @@ public class Collectable : MonoBehaviour
     {
         Normal,
         Rare,
-        Gold
+        Gold,
+        Epic,
+        Legendary
     }
 
     void Awake()
     {
-        SetRandomCollectableType(); 
+        if (myScoreText == null)
+            myScoreText = GetComponentInChildren<TMPro.TMP_Text>(true);
+
+        SetRandomCollectableType();
         SetCollectable();
-        
     }
 
     public void SetCollectable()
@@ -81,46 +98,57 @@ public class Collectable : MonoBehaviour
         switch (myType)
         {
             case CollectableType.Normal:
-                spriteToChange.gameObject.transform.localScale = normalSpriteScale;
+                spriteToChange.transform.localScale = normalSpriteScale;
                 myAnimator.SetTrigger(Normal);
-                if (normalSprite != null)
-                    spriteToChange.sprite = normalSprite;
+                spriteToChange.sprite = normalSprite;
                 break;
+
             case CollectableType.Rare:
-                spriteToChange.gameObject.transform.localScale = rareSpriteScale;
+                spriteToChange.transform.localScale = rareSpriteScale;
                 myAnimator.SetTrigger(Rare);
-                if (rareSprite != null)
-                    spriteToChange.sprite = rareSprite;
+                spriteToChange.sprite = rareSprite;
                 break;
+
             case CollectableType.Gold:
-                spriteToChange.gameObject.transform.localScale = goldSpriteScale;
+                spriteToChange.transform.localScale = goldSpriteScale;
                 myAnimator.SetTrigger(Gold);
-                if (goldSprite != null)
-                    spriteToChange.sprite = goldSprite;
+                spriteToChange.sprite = goldSprite;
                 break;
-            default:
+
+            case CollectableType.Epic:
+                spriteToChange.transform.localScale = epicSpriteScale;
+                myAnimator.SetTrigger("Epic");
+                spriteToChange.sprite = epicSprite;
+                break;
+
+            case CollectableType.Legendary:
+                spriteToChange.transform.localScale = legendarySpriteScale;
+                myAnimator.SetTrigger("Legendary");
+                spriteToChange.sprite = legendarySprite;
                 break;
         }
 
-        myScoreText.SetText(MyScore.ToString("D2"));
-    } 
+        //  PROTECCIÓN CRÍTICA
+        if (myScoreText != null)
+            myScoreText.SetText(MyScore.ToString("D2"));
+        else
+            Debug.LogWarning($"Collectable sin TMP_Text en {gameObject.name}");
+    }
 
     private void SetRandomCollectableType()
     {
         float roll = UnityEngine.Random.Range(0f, 100f);
 
-        if (roll < goldChance)
-        {
+        if (roll < 10f)
+            myType = CollectableType.Legendary;
+        else if (roll < 25f)
+            myType = CollectableType.Epic;
+        else if (roll < 45f)
             myType = CollectableType.Gold;
-        }
-        else if (roll < goldChance + rareChance)
-        {
+        else if (roll < 70f)
             myType = CollectableType.Rare;
-        }
         else
-        {
             myType = CollectableType.Normal;
-        }
     }
     public void ObjectCollected()
     {

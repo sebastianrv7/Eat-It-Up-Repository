@@ -5302,6 +5302,7 @@ MonoBehaviour:
   wallJumpHeight: 1.75
   wallJumpForce: 16
   bodyCollision: {fileID: 5584656481781782714}
+  spriteRenderer: {fileID: 7296284001000412449}
 --- !u!114 &3833764034719829840
 MonoBehaviour:
   m_ObjectHideFlags: 0

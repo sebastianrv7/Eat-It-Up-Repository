@@ -247,27 +247,67 @@ PrefabInstance:
     - target: {fileID: 808158388790239554, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1482087493840597928, guid: 80ed1d6c632408c4d8b6796e8f288dd1, type: 3}
+      objectReference: {fileID: 21300000, guid: bf51486c8e885c84e8aa029165434f92, type: 3}
     - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: myType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
+      propertyPath: epicScore
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
+      propertyPath: goldScore
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
+      propertyPath: rareScore
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
+      propertyPath: epicSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8313862877cc54844937f367de902422, type: 3}
     - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: goldSprite
       value: 
-      objectReference: {fileID: 1482087493840597928, guid: 80ed1d6c632408c4d8b6796e8f288dd1, type: 3}
+      objectReference: {fileID: 21300000, guid: 2716aed64d5abd74183ce6b93e784ddf, type: 3}
     - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: rareSprite
       value: 
-      objectReference: {fileID: -5564348379112770522, guid: bf0668cad9dc9cc49916d5e93aae9b60, type: 3}
+      objectReference: {fileID: 21300000, guid: 64db9189436b2394193081c4be6f3c38, type: 3}
     - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: myScoreText
       value: 
       objectReference: {fileID: 5800261845798631043}
     - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
+      propertyPath: normalScore
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: normalSprite
       value: 
-      objectReference: {fileID: -1532564777219809439, guid: 02458c3cab1e14f429a874ad7893d86f, type: 3}
+      objectReference: {fileID: 21300000, guid: 6a8e86a9b9ee63d4badfac37a8f58494, type: 3}
+    - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
+      propertyPath: legendaryScore
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
+      propertyPath: legendarySprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6a204628f1e295b4b8414d508e2c016d, type: 3}
+    - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
+      propertyPath: epicSpriteScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
+      propertyPath: epicSpriteScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
+      propertyPath: epicSpriteScale.z
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: goldSpriteScale.x
       value: 2.25
@@ -298,15 +338,27 @@ PrefabInstance:
       objectReference: {fileID: -4928491764571963489, guid: 25153de41fb8ede44a73494612e68b6c, type: 3}
     - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: normalSpriteScale.x
-      value: 5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: normalSpriteScale.y
-      value: 5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: normalSpriteScale.z
-      value: 5
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
+      propertyPath: legendarySpriteScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
+      propertyPath: legendarySpriteScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291280125750976497, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
+      propertyPath: legendarySpriteScale.z
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2047100227547374116, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: m_LocalScale.x
@@ -346,15 +398,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2951587073198611976, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.05
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 2951587073198611976, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.081993
+      value: -9.370001
       objectReference: {fileID: 0}
     - target: {fileID: 2951587073198611976, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.1115458
+      value: 0.6481989
       objectReference: {fileID: 0}
     - target: {fileID: 2951587073198611976, guid: 1ecf1c116cced694f8a75d3a8681e466, type: 3}
       propertyPath: m_LocalRotation.w
